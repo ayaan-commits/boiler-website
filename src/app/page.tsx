@@ -1,65 +1,89 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { Hero } from "@/components/sections/Hero";
+import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { StatsCounter } from "@/components/sections/StatsCounter";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { FAQSection } from "@/components/sections/FAQSection";
+import { CTABanner } from "@/components/sections/CTABanner";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { siteConfig } from "@/data/siteConfig";
+
+export const metadata: Metadata = {
+  title: "Expert Boiler Installation & Repair Manchester | BoilerPro",
+  description: "Professional boiler installation, repair & servicing by Gas Safe registered engineers in Manchester. 24/7 emergency callouts. Free quotes. 500+ 5-star reviews.",
+  keywords: ["boiler installation Manchester", "boiler repair Manchester", "Gas Safe engineer", "emergency boiler repair", "Worcester Bosch installer", "boiler servicing"],
+  alternates: {
+    canonical: "https://www.boilerpro.co.uk",
+  },
+  openGraph: {
+    title: "Expert Boiler Installation & Repair Manchester | BoilerPro",
+    description: "Professional boiler installation, repair & servicing by Gas Safe registered engineers. 24/7 emergency callouts. Free quotes.",
+    url: "https://www.boilerpro.co.uk",
+    images: [{ url: "/images/og/homepage.jpg", width: 1200, height: 630, alt: "BoilerPro - Expert Boiler Services Manchester" }],
+  },
+};
 
 export default function Home() {
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "PlumbingService"],
+    name: siteConfig.name,
+    description: siteConfig.tagline,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.city,
+      postalCode: siteConfig.address.postcode,
+      addressCountry: "GB",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "53.4808",
+      longitude: "-2.2426",
+    },
+    url: "https://www.boilerpro.co.uk",
+    priceRange: "££",
+    openingHours: [
+      "Mo-Fr 08:00-18:00",
+      "Sa 09:00-16:00",
+    ],
+    areaServed: {
+      "@type": "City",
+      name: "Manchester",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "500",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    paymentAccepted: "Cash, Credit Card, Debit Card, Bank Transfer",
+    foundingDate: "2004",
+    numberOfEmployees: { "@type": "QuantitativeValue", value: "25" },
+    image: "https://www.boilerpro.co.uk/og-image.jpg",
+    sameAs: [
+      siteConfig.social.facebook,
+      siteConfig.social.instagram,
+      siteConfig.social.twitter,
+    ],
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <JsonLd data={localBusinessSchema} />
+      <Hero />
+      <ServicesGrid />
+      <WhyChooseUs />
+      <HowItWorks />
+      <StatsCounter />
+      <Testimonials />
+      <CTABanner />
+      <FAQSection />
+    </>
   );
 }
