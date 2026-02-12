@@ -6,6 +6,7 @@ export interface BlogPost {
   date: string;
   readTime: string;
   author: string;
+  image: string;
   content?: string;
 }
 
@@ -18,7 +19,8 @@ export const blogPosts: BlogPost[] = [
     category: "Guides",
     date: "January 15, 2026",
     readTime: "5 min read",
-    author: "BoilerPro Team",
+    author: "Plumbline MK Team",
+    image: "/images/blog/blog-boiler-guide.jpg",
     content: `
       <p>Selecting the right boiler for your home is one of the most important decisions you'll make as a homeowner. With various types, sizes, and brands available, it's essential to understand your options to ensure you get a system that provides reliable heating, hot water, and energy efficiency for years to come.</p>
 
@@ -42,7 +44,8 @@ export const blogPosts: BlogPost[] = [
     category: "Maintenance",
     date: "January 10, 2026",
     readTime: "5 min read",
-    author: "BoilerPro Team",
+    author: "Plumbline MK Team",
+    image: "/images/blog/blog-boiler-signs.jpg",
     content: `
       <p>Knowing when to replace your boiler rather than repair it can save you money and prevent the inconvenience of unexpected breakdowns. While regular servicing can extend your boiler's lifespan, there comes a point where replacement becomes the more practical and cost-effective option.</p>
 
@@ -72,7 +75,8 @@ export const blogPosts: BlogPost[] = [
     category: "Legal",
     date: "January 5, 2026",
     readTime: "5 min read",
-    author: "BoilerPro Team",
+    author: "Plumbline MK Team",
+    image: "/images/blog/blog-gas-safety.jpg",
     content: `
       <p>If you're a landlord in the UK, obtaining and maintaining a valid Landlord Gas Safety Certificate (also known as a CP12) is one of your most important legal obligations. This certificate ensures that all gas appliances, fittings, and flues in your rental property are safe for tenant use.</p>
 
@@ -102,7 +106,8 @@ export const blogPosts: BlogPost[] = [
     category: "Tips",
     date: "December 28, 2025",
     readTime: "5 min read",
-    author: "BoilerPro Team",
+    author: "Plumbline MK Team",
+    image: "/images/blog/blog-energy-saving.jpg",
     content: `
       <p>With energy prices continuing to rise, many households are looking for effective ways to reduce their heating bills without sacrificing comfort. The good news is that with some simple changes and smart habits, you can significantly lower your energy consumption and save money throughout the year.</p>
 
@@ -132,7 +137,8 @@ export const blogPosts: BlogPost[] = [
     category: "Maintenance",
     date: "December 20, 2025",
     readTime: "5 min read",
-    author: "BoilerPro Team",
+    author: "Plumbline MK Team",
+    image: "/images/blog/blog-boiler-servicing.jpg",
     content: `
       <p>Many homeowners question whether annual boiler servicing is really necessary, especially when their boiler seems to be working fine. However, regular professional maintenance is one of the most important things you can do to ensure your heating system remains safe, efficient, and reliable.</p>
 
@@ -162,7 +168,8 @@ export const blogPosts: BlogPost[] = [
     category: "Guides",
     date: "December 15, 2025",
     readTime: "5 min read",
-    author: "BoilerPro Team",
+    author: "Plumbline MK Team",
+    image: "/images/blog/blog-underfloor-heating.jpg",
     content: `
       <p>Underfloor heating (UFH) has transformed from a luxury feature into an increasingly popular heating solution for UK homes. Whether you're building a new home, planning a renovation, or simply looking to upgrade your heating system, underfloor heating offers numerous benefits that make it worth considering.</p>
 

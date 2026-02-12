@@ -1,27 +1,43 @@
 "use client";
 
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { testimonials } from "@/data/siteConfig";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { cn } from "@/lib/utils";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function Testimonials() {
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start" },
-    [Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })]
+    [autoplayPlugin.current]
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
   const scrollTo = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
+
+  const toggleAutoplay = useCallback(() => {
+    const plugin = autoplayPlugin.current;
+    if (!plugin) return;
+    if (isPlaying) {
+      plugin.stop();
+    } else {
+      plugin.play();
+    }
+    setIsPlaying(!isPlaying);
+  }, [isPlaying]);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -29,6 +45,25 @@ export function Testimonials() {
     setCanScrollPrev(emblaApi.canScrollPrev());
     setCanScrollNext(emblaApi.canScrollNext());
   }, [emblaApi]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        scrollPrev();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        scrollNext();
+      }
+    };
+
+    const rootNode = emblaApi.rootNode();
+    rootNode.addEventListener("keydown", handleKeyDown);
+    return () => rootNode.removeEventListener("keydown", handleKeyDown);
+  }, [emblaApi, scrollPrev, scrollNext]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -59,21 +94,21 @@ export function Testimonials() {
           {/* Prev/Next Arrows */}
           <button
             onClick={scrollPrev}
-            className="absolute -left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-light-grey transition-colors"
+            className="absolute -left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-light-grey transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-5 h-5 text-primary" />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-light-grey transition-colors"
+            className="absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-light-grey transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-5 h-5 text-primary" />
           </button>
 
           {/* Embla Viewport */}
-          <div ref={emblaRef} className="overflow-hidden" role="region" aria-label="Customer testimonials carousel">
+          <div ref={emblaRef} className="overflow-hidden" role="region" aria-label="Customer testimonials carousel" aria-roledescription="carousel" tabIndex={0}>
             <div className="flex gap-6">
               {testimonials.map((testimonial, index) => (
                 <div
@@ -82,7 +117,7 @@ export function Testimonials() {
                   role="group"
                   aria-label={`Testimonial ${index + 1} of ${testimonials.length}`}
                 >
-                  <div className="bg-white rounded-lg p-6 shadow-md h-full flex flex-col">
+                  <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
                     {/* Star Rating */}
                     <div className="flex gap-1 mb-4" role="img" aria-label="5 out of 5 stars">
                       {Array.from({ length: 5 }).map((_, i) => (
@@ -115,21 +150,35 @@ export function Testimonials() {
           </div>
         </div>
 
-        {/* Dot Indicators */}
-        <div className="flex justify-center gap-2 mt-8">
-          {scrollSnaps.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => scrollTo(index)}
-              className={cn(
-                "w-2.5 h-2.5 rounded-full transition-all duration-200",
-                selectedIndex === index
-                  ? "bg-accent w-8"
-                  : "bg-warm-grey hover:bg-text-muted"
-              )}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+        {/* Controls: Dots + Pause */}
+        <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="flex gap-2">
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollTo(index)}
+                className={cn(
+                  "rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2",
+                  selectedIndex === index
+                    ? "bg-accent w-8 h-2.5"
+                    : "bg-warm-grey hover:bg-text-muted w-2.5 h-2.5"
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={selectedIndex === index ? "true" : undefined}
+              />
+            ))}
+          </div>
+          <button
+            onClick={toggleAutoplay}
+            className="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-light-grey transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+            aria-label={isPlaying ? "Pause carousel" : "Play carousel"}
+          >
+            {isPlaying ? (
+              <Pause className="w-3.5 h-3.5 text-primary" />
+            ) : (
+              <Play className="w-3.5 h-3.5 text-primary" />
+            )}
+          </button>
         </div>
       </div>
     </section>

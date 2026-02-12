@@ -39,15 +39,15 @@ export function ServicesGrid() {
         </ScrollReveal>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
 
             return (
               <ScrollReveal key={service.slug} delay={index * 0.08}>
-                <div className="bg-white border border-warm-grey rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300 h-full">
+                <div className="bg-white border border-warm-grey rounded-lg p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full group">
                   {/* Icon Area */}
-                  <div className="w-14 h-14 rounded-full bg-cream flex items-center justify-center mb-4">
+                  <div className="w-14 h-14 rounded-full bg-cream flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     {IconComponent && (
                       <IconComponent className="w-7 h-7 text-accent" aria-hidden="true" />
                     )}

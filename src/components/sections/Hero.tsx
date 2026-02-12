@@ -22,7 +22,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-teal/30" />
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-teal/10 to-transparent" />
 
-      <div className="relative max-w-7xl mx-auto px-4 py-16 lg:py-24">
+      <div className="relative max-w-7xl mx-auto px-4 py-10 md:py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
           <div>
@@ -57,12 +57,12 @@ export function Hero() {
               variants={fadeIn}
               custom={1}
             >
-              Install Your{" "}
+              Your Trusted{" "}
               <span className="relative inline-block">
-                <span className="relative z-10">New Boiler</span>
+                <span className="relative z-10">Plumbing & Heating</span>
                 <span className="absolute inset-0 bg-accent -skew-x-2 rounded-sm z-0 scale-x-105 scale-y-110" />
               </span>{" "}
-              Today
+              Experts in Milton Keynes
             </motion.h1>
 
             <motion.p
@@ -72,9 +72,9 @@ export function Hero() {
               variants={fadeIn}
               custom={2}
             >
-              Get ready for winter with a new, energy-efficient boiler. Enjoy
-              reliable heating, lower bills, and a cozy home with a
-              professionally installed system built for comfort and performance.
+              Reliable, affordable plumbing and heating services with transparent pricing.
+              Gas Safe registered engineers you can trust for all your boiler installation,
+              repair, and servicing needs across Milton Keynes.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -115,13 +115,13 @@ export function Hero() {
               custom={4}
             >
               <span>
-                <strong className="text-white text-lg">20+</strong> Years Exp.
+                <strong className="text-white text-lg">10+</strong> Years Exp.
               </span>
               <span>
-                <strong className="text-white text-lg">5,000+</strong> Installs
+                <strong className="text-white text-lg">100+</strong> Reviews
               </span>
               <span>
-                <strong className="text-white text-lg">4.9</strong> Google Rating
+                <strong className="text-white text-lg">5.0</strong> Google Rating
               </span>
             </motion.div>
           </div>
@@ -137,7 +137,7 @@ export function Hero() {
               {/* Hero image */}
               <Image
                 src="/images/hero/hero-engineer.jpg"
-                alt="Professional Gas Safe registered engineer installing a boiler"
+                alt="Professional Gas Safe registered engineer installing a Worcester Bosch boiler in Milton Keynes"
                 fill
                 className="object-cover rounded-2xl"
                 priority
@@ -173,8 +173,8 @@ export function Hero() {
                   {"★★★★★"}
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-text-primary">4.9/5</p>
-                  <p className="text-xs text-text-muted">500+ Reviews</p>
+                  <p className="text-sm font-bold text-text-primary">5.0/5</p>
+                  <p className="text-xs text-text-muted">100+ Reviews</p>
                 </div>
               </motion.div>
             </div>

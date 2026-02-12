@@ -7,15 +7,15 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 export const metadata: Metadata = {
-  title: "Customer Reviews | 4.9★ Rating | 500+ Reviews",
-  description: "Read 500+ verified customer reviews for BoilerPro. 4.9-star rating on Google. See why Manchester homeowners trust us for boiler installation, repair & servicing.",
-  keywords: ["BoilerPro reviews", "boiler installation reviews Manchester", "heating engineer reviews", "Gas Safe plumber reviews"],
-  alternates: { canonical: "https://www.boilerpro.co.uk/reviews" },
+  title: "Customer Reviews | 5.0 Rating | 100+ Reviews",
+  description: "Read 100+ verified customer reviews for Plumbline MK. 5.0-star rating on Google. See why Milton Keynes homeowners trust us for boiler installation, repair & servicing.",
+  keywords: ["Plumbline MK reviews", "boiler installation reviews Milton Keynes", "heating engineer reviews", "Gas Safe plumber reviews"],
+  alternates: { canonical: "https://www.plumblinemk.co.uk/reviews" },
   openGraph: {
-    title: "Customer Reviews | BoilerPro - 4.9★ from 500+ Reviews",
-    description: "Read verified customer reviews. 4.9-star rating on Google.",
-    url: "https://www.boilerpro.co.uk/reviews",
-    images: [{ url: "/images/og/reviews.jpg", width: 1200, height: 630, alt: "BoilerPro Customer Reviews" }],
+    title: "Customer Reviews | Plumbline MK - 5.0★ from 100+ Reviews",
+    description: "Read verified customer reviews. 5.0-star rating on Google.",
+    url: "https://www.plumblinemk.co.uk/reviews",
+    images: [{ url: "/images/og/reviews.jpg", width: 1200, height: 630, alt: "Plumbline MK Customer Reviews" }],
   },
 };
 
@@ -24,28 +24,28 @@ const allReviews = [
   ...testimonials.map((t) => ({ ...t, service: "Boiler Installation" })),
   {
     name: "Michael B.",
-    location: "Liverpool",
+    location: "Milton Keynes",
     rating: 5,
     text: "Fantastic service from start to finish. The team was professional, punctual, and cleaned up after themselves. Our new Worcester Bosch boiler is working perfectly.",
     service: "Boiler Installation",
   },
   {
     name: "Rachel P.",
-    location: "Preston",
+    location: "Newport Pagnell",
     rating: 5,
     text: "Called them out for an emergency repair on Sunday evening. Engineer arrived within 90 minutes and had us back up and running. Lifesaver!",
     service: "Emergency Repair",
   },
   {
     name: "Tom H.",
-    location: "Bolton",
+    location: "Bedford",
     rating: 5,
     text: "Great experience getting our annual service done. Very thorough inspection and the engineer explained everything in detail. Will definitely use again.",
     service: "Boiler Servicing",
   },
   {
     name: "Sophie L.",
-    location: "Stockport",
+    location: "Buckingham",
     rating: 5,
     text: "Needed CP12 certificates for three rental properties. They coordinated all visits efficiently and provided all documentation promptly. Excellent service for landlords.",
     service: "Gas Safety Certificate",
@@ -57,35 +57,29 @@ export default function ReviewsPage() {
     <>
       <JsonLd data={{
         "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plumblinemk.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Customer Reviews" },
+        ],
+      }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        name: "BoilerPro",
+        name: "Plumbline MK",
         aggregateRating: {
           "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "500",
+          ratingValue: "5.0",
+          reviewCount: String(allReviews.length),
           bestRating: "5",
           worstRating: "1"
         },
-        review: [
-          {
-            "@type": "Review",
-            author: { "@type": "Person", name: "Sarah Mitchell" },
-            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-            reviewBody: "Excellent service from start to finish. The engineer was professional, tidy, and explained everything clearly."
-          },
-          {
-            "@type": "Review",
-            author: { "@type": "Person", name: "James Thompson" },
-            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-            reviewBody: "Quick response to our emergency call. Had our heating back on within hours."
-          },
-          {
-            "@type": "Review",
-            author: { "@type": "Person", name: "Emma Williams" },
-            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-            reviewBody: "Great value for money. The team installed our new Worcester Bosch boiler efficiently."
-          }
-        ]
+        review: allReviews.map((review) => ({
+          "@type": "Review",
+          author: { "@type": "Person", name: review.name },
+          reviewRating: { "@type": "Rating", ratingValue: String(review.rating), bestRating: "5" },
+          reviewBody: review.text,
+        })),
       }} />
       {/* Hero Banner */}
       <section className="bg-primary relative overflow-hidden">
@@ -97,7 +91,7 @@ export default function ReviewsPage() {
                 Customer Reviews
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto">
-                See why hundreds of customers trust us with their heating needs
+                See why hundreds of Milton Keynes homeowners trust us with their boiler and heating needs
               </p>
             </div>
           </ScrollReveal>
@@ -119,7 +113,7 @@ export default function ReviewsPage() {
                   />
                 ))}
               </div>
-              <AnimatedCounter value="4.9" className="text-4xl font-bold text-primary mb-1" />
+              <AnimatedCounter value="5.0" className="text-4xl font-bold text-primary mb-1" />
               <p className="text-text-secondary">Average Rating</p>
             </div>
 
@@ -128,7 +122,7 @@ export default function ReviewsPage() {
               <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-teal/10 flex items-center justify-center">
                 <ShieldCheck className="w-6 h-6 text-teal" aria-hidden="true" />
               </div>
-              <AnimatedCounter value="500+" className="text-4xl font-bold text-primary mb-1" />
+              <AnimatedCounter value="100+" className="text-4xl font-bold text-primary mb-1" />
               <p className="text-text-secondary">Happy Customers</p>
             </div>
 
@@ -155,7 +149,7 @@ export default function ReviewsPage() {
                 </svg>
                 <span className="font-bold text-xl text-text-primary">Google</span>
               </div>
-              <p className="text-4xl font-bold text-primary mb-1">4.9★</p>
+              <p className="text-4xl font-bold text-primary mb-1">5.0★</p>
               <p className="text-text-secondary">Google Rating</p>
             </div>
           </div>
@@ -169,7 +163,7 @@ export default function ReviewsPage() {
             {allReviews.map((review, index) => (
               <ScrollReveal key={index} delay={index * 0.06}>
                 <article
-                  className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+                  className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg hover:border-accent/30 border border-transparent transition-all duration-300"
                 >
                   {/* Star Rating */}
                   <div className="flex gap-1 mb-4" role="img" aria-label="5 out of 5 stars">

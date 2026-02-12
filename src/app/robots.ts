@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.boilerpro.co.uk/sitemap.xml",
+    sitemap: "https://www.plumblinemk.co.uk/sitemap.xml",
   };
 }

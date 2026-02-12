@@ -3,14 +3,14 @@ import { services } from "@/data/siteConfig";
 import { blogPosts } from "@/data/blogPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.boilerpro.co.uk";
+  const baseUrl = "https://www.plumblinemk.co.uk";
 
   // Static routes
   const staticRoutes = [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: "daily" as const,
+      changeFrequency: "weekly" as const,
       priority: 1.0,
     },
     {
@@ -54,6 +54,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date("2025-01-01"),
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date("2025-01-01"),
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
     },
   ];
 

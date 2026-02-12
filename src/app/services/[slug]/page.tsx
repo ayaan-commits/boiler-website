@@ -64,16 +64,16 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${service.title} Manchester | Professional & Gas Safe | BoilerPro`,
+    title: `${service.title} Milton Keynes | Professional & Gas Safe | Plumbline MK`,
     description: service.description,
-    keywords: [service.title.toLowerCase(), `${service.title.toLowerCase()} Manchester`, "Gas Safe registered", "professional heating engineer"],
+    keywords: [service.title.toLowerCase(), `${service.title.toLowerCase()} Milton Keynes`, "Gas Safe registered", "professional heating engineer"],
     alternates: {
-      canonical: `https://www.boilerpro.co.uk/services/${slug}`,
+      canonical: `https://www.plumblinemk.co.uk/services/${slug}`,
     },
     openGraph: {
-      title: `${service.title} | BoilerPro Manchester`,
+      title: `${service.title} | Plumbline MK Milton Keynes`,
       description: service.description,
-      url: `https://www.boilerpro.co.uk/services/${slug}`,
+      url: `https://www.plumblinemk.co.uk/services/${slug}`,
       images: [{ url: `/images/services/${slug}.jpg`, width: 1200, height: 630, alt: service.title }],
     },
   };
@@ -104,17 +104,17 @@ export default async function ServicePage({ params }: ServicePageProps) {
       telephone: siteConfig.phone,
       address: {
         "@type": "PostalAddress",
-        streetAddress: siteConfig.address.street,
         addressLocality: siteConfig.address.city,
+        addressRegion: siteConfig.address.county,
         postalCode: siteConfig.address.postcode,
         addressCountry: "GB",
       },
     },
     areaServed: {
       "@type": "City",
-      name: "Manchester",
+      name: "Milton Keynes",
     },
-    url: `https://www.boilerpro.co.uk/services/${slug}`,
+    url: `https://www.plumblinemk.co.uk/services/${slug}`,
     offers: {
       "@type": "Offer",
       price: service.price.includes("From") ? service.price.replace("From £", "") : undefined,
@@ -130,8 +130,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.boilerpro.co.uk" },
-          { "@type": "ListItem", position: 2, name: "Services", item: "https://www.boilerpro.co.uk/services" },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plumblinemk.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Services", item: "https://www.plumblinemk.co.uk/services" },
           { "@type": "ListItem", position: 3, name: service.title }
         ]
       }} />
@@ -187,7 +187,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <div className="flex flex-wrap gap-3">
                 {[
                   { icon: ShieldIcon, text: "Gas Safe Registered" },
-                  { icon: Star, text: "4.9/5 Rating" },
+                  { icon: Star, text: "5.0/5 Rating" },
                   { icon: Clock, text: "Fast Response" },
                 ].map(({ icon: Icon, text }) => (
                   <span
@@ -245,7 +245,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="relative w-full h-64 md:h-80 overflow-hidden rounded-xl">
             <Image
               src={serviceImages[slug] || "/images/services/boiler-installation.jpg"}
-              alt={`${service.title} service by BoilerPro`}
+              alt={`${service.title} service by Plumbline MK`}
               fill
               className="object-cover"
               priority
@@ -337,7 +337,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-6">
+              <div className="sticky top-24">
                 {/* Other Services */}
                 <div className="bg-light-grey rounded-xl p-6 mb-6">
                   <h3 className="font-heading text-xl font-bold text-primary mb-4">

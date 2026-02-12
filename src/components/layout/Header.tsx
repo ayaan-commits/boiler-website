@@ -1,16 +1,48 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Phone, Menu, X, ChevronDown, Flame } from "lucide-react";
+import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { siteConfig, navLinks, trustSignals } from "@/data/siteConfig";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
+
+  const handleDropdownEnter = useCallback(() => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setServicesOpen(true);
+  }, []);
+
+  const handleDropdownLeave = useCallback(() => {
+    closeTimerRef.current = setTimeout(() => setServicesOpen(false), 300);
+  }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  // Cleanup dropdown timer
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
 
   return (
     <>
@@ -38,9 +70,8 @@ export function Header() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 shrink-0">
-              <Flame className="w-8 h-8 text-accent" aria-hidden="true" />
-              <span className="font-heading text-xl lg:text-2xl font-bold text-white">
-                Boiler<span className="text-accent">Pro</span>
+              <span className="font-heading text-xl lg:text-2xl font-bold text-white tracking-tight">
+                PLUMBLINE <span className="text-accent">MK</span>
               </span>
             </Link>
 
@@ -50,8 +81,8 @@ export function Header() {
                 <div
                   key={link.label}
                   className="relative group"
-                  onMouseEnter={() => link.children && setServicesOpen(true)}
-                  onMouseLeave={() => link.children && setServicesOpen(false)}
+                  onMouseEnter={() => link.children && handleDropdownEnter()}
+                  onMouseLeave={() => link.children && handleDropdownLeave()}
                   onFocus={() => link.children && setServicesOpen(true)}
                   onBlur={(e) => {
                     if (link.children && !e.currentTarget.contains(e.relatedTarget as Node)) {
@@ -254,11 +285,11 @@ export function Header() {
 
       {/* Trust Bar */}
       <div className="bg-cream border-b border-warm-grey">
-        <div className="max-w-7xl mx-auto px-4 py-2.5 flex justify-center gap-6 lg:gap-10 overflow-x-auto scrollbar-hide">
+        <div className="max-w-7xl mx-auto px-4 py-2.5 flex justify-center gap-6 lg:gap-10 overflow-x-auto scrollbar-hide trust-bar-fade">
           {trustSignals.map((signal) => (
             <span
               key={signal}
-              className="flex items-center gap-1.5 text-primary text-xs lg:text-sm font-medium whitespace-nowrap"
+              className="flex items-center gap-1.5 text-primary text-sm font-medium whitespace-nowrap"
             >
               <span className="text-success font-bold" aria-hidden="true">&#10003;</span>
               {signal}

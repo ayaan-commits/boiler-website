@@ -6,6 +6,7 @@ import { Clock, Calendar, User, ChevronRight, ArrowLeft } from "lucide-react";
 import { blogPosts, type BlogPost } from "@/data/blogPosts";
 import { siteConfig } from "@/data/siteConfig";
 import { JsonLd } from "@/components/seo/JsonLd";
+import DOMPurify from "isomorphic-dompurify";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -38,12 +39,12 @@ export async function generateMetadata({
     description: post.excerpt,
     keywords: [post.category.toLowerCase(), "boiler advice", "heating tips", post.title.toLowerCase().split(' ').slice(0, 3).join(' ')],
     alternates: {
-      canonical: `https://www.boilerpro.co.uk/blog/${resolvedParams.slug}`,
+      canonical: `https://www.plumblinemk.co.uk/blog/${resolvedParams.slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://www.boilerpro.co.uk/blog/${resolvedParams.slug}`,
+      url: `https://www.plumblinemk.co.uk/blog/${resolvedParams.slug}`,
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
@@ -69,29 +70,41 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: post.title,
+    "@id": `https://www.plumblinemk.co.uk/blog/${post.slug}#article`,
+    headline: post.title.substring(0, 110),
     description: post.excerpt,
+    keywords: post.category,
     author: {
       "@type": "Organization",
       name: post.author,
+      url: "https://www.plumblinemk.co.uk",
     },
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
       logo: {
         "@type": "ImageObject",
-        url: "https://www.boilerpro.co.uk/logo.png",
+        url: "https://www.plumblinemk.co.uk/logo.png",
+        width: 600,
+        height: 60,
       },
     },
     datePublished: new Date(post.date).toISOString(),
     dateModified: new Date(post.date).toISOString(),
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.boilerpro.co.uk/blog/${post.slug}`,
+      "@id": `https://www.plumblinemk.co.uk/blog/${post.slug}`,
     },
-    image: "https://www.boilerpro.co.uk/og-image.jpg",
+    image: {
+      "@type": "ImageObject",
+      url: `https://www.plumblinemk.co.uk/images/blog/${post.slug}.jpg`,
+      width: 1200,
+      height: 630,
+    },
     articleSection: post.category,
-    wordCount: post.content ? post.content.split(/\s+/).length : 0,
+    wordCount: post.content
+      ? post.content.replace(/<[^>]*>/g, "").split(/\s+/).filter(Boolean).length
+      : 0,
   };
 
   return (
@@ -101,8 +114,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.boilerpro.co.uk" },
-          { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.boilerpro.co.uk/blog" },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plumblinemk.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.plumblinemk.co.uk/blog" },
           { "@type": "ListItem", position: 3, name: post.title }
         ]
       }} />
@@ -175,7 +188,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Featured Image */}
               <div className="relative w-full h-64 md:h-80 overflow-hidden rounded-xl mb-8">
                 <Image
-                  src="/images/blog/blog-boiler-guide.jpg"
+                  src={post.image}
                   alt={post.title}
                   fill
                   className="object-cover"
@@ -195,7 +208,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   prose-strong:text-text-primary prose-strong:font-semibold
                   prose-ul:my-4 prose-ul:text-text-secondary
                   prose-li:mb-2"
-                dangerouslySetInnerHTML={{ __html: post.content || "" }}
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content || "") }}
               />
 
               {/* CTA Box */}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Flame } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, MessageCircle } from "lucide-react";
 import { siteConfig, services } from "@/data/siteConfig";
 
 export function Footer() {
@@ -11,14 +11,14 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Flame className="w-7 h-7 text-accent" aria-hidden="true" />
-              <span className="font-heading text-xl font-bold">
-                Boiler<span className="text-accent">Pro</span>
+              <span className="font-heading text-xl font-bold tracking-tight">
+                PLUMBLINE <span className="text-accent">MK</span>
               </span>
             </Link>
             <p className="text-white/65 text-sm leading-relaxed mb-4">
-              Professional boiler installation, repair & servicing by Gas Safe
-              registered engineers. Trusted by thousands of homeowners.
+              Your trusted local plumbing and heating experts in Milton Keynes.
+              Gas Safe registered engineers providing reliable and affordable services
+              across Buckinghamshire and surrounding areas.
             </p>
             <div className="flex gap-3">
               <a
@@ -40,13 +40,13 @@ export function Footer() {
                 <Instagram className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
-                href={siteConfig.social.twitter}
+                href={siteConfig.social.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
-                aria-label="Twitter"
+                aria-label="WhatsApp"
               >
-                <Twitter className="w-5 h-5" aria-hidden="true" />
+                <MessageCircle className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -54,12 +54,12 @@ export function Footer() {
           {/* Services */}
           <div>
             <h3 className="font-heading font-semibold text-base mb-4">Services</h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1 md:space-y-2.5">
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-white/65 hover:text-accent text-sm transition-colors"
+                    className="text-white/65 hover:text-accent text-sm transition-colors block py-1.5 md:py-0"
                   >
                     {service.title}
                   </Link>
@@ -71,7 +71,7 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="font-heading font-semibold text-base mb-4">Company</h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1 md:space-y-2.5">
               {[
                 { label: "About Us", href: "/about" },
                 { label: "Reviews", href: "/reviews" },
@@ -85,7 +85,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/65 hover:text-accent text-sm transition-colors"
+                    className="text-white/65 hover:text-accent text-sm transition-colors block py-1.5 md:py-0"
                   >
                     {link.label}
                   </Link>
@@ -119,9 +119,9 @@ export function Footer() {
               <li className="flex items-start gap-2.5 text-white/65 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />
                 <span>
-                  {siteConfig.address.street}
+                  {siteConfig.address.city}
                   <br />
-                  {siteConfig.address.city}, {siteConfig.address.postcode}
+                  {siteConfig.address.county}, {siteConfig.address.postcode}
                 </span>
               </li>
               <li className="flex items-start gap-2.5 text-white/65 text-sm">
@@ -139,7 +139,7 @@ export function Footer() {
             </ul>
             <div className="mt-4">
               <span className="inline-block bg-success text-white text-xs font-semibold px-3 py-1.5 rounded">
-                Gas Safe: {siteConfig.gasSafeNumber}
+                Gas Safe Registered
               </span>
             </div>
           </div>
@@ -150,8 +150,8 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-white/45">
           <p>
-            &copy; {new Date().getFullYear()} {siteConfig.name} Ltd. All rights
-            reserved. | Registered in England No. {siteConfig.companyNumber}
+            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
+            reserved.
           </p>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-white/70 transition-colors">

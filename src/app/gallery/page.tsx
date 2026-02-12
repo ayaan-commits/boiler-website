@@ -152,7 +152,7 @@ export default function GalleryPage() {
                   key={filter}
                   onClick={() => setSelectedFilter(filter)}
                   className={cn(
-                    "px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200",
+                    "px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 cursor-pointer",
                     selectedFilter === filter
                       ? "bg-accent text-white shadow-md"
                       : "bg-white text-text-secondary hover:bg-warm-grey hover:text-text-primary"
@@ -186,13 +186,13 @@ export default function GalleryPage() {
                     transition={{ duration: 0.3 }}
                   >
                     <article
-                      className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-200 group"
+                      className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
                     >
                       {/* Gallery Image */}
                       <div className="aspect-[4/3] relative overflow-hidden">
                         <Image
                           src={galleryImages[item.id] || "/images/gallery/gallery-1.jpg"}
-                          alt={`${item.title} - ${item.description}`}
+                          alt={`${item.title} - ${item.description} by Plumbline MK in Milton Keynes`}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

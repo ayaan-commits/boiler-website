@@ -4,9 +4,9 @@ import { FileText, Scale, ShieldCheck, CreditCard, AlertTriangle, Phone, Mail } 
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | BoilerPro",
-  description: "Terms and conditions for BoilerPro heating and boiler services. Our service terms, payment conditions, warranties, and customer obligations.",
-  alternates: { canonical: "https://www.boilerpro.co.uk/terms" },
+  title: "Terms & Conditions | Plumbline MK",
+  description: "Terms and conditions for Plumbline MK heating and boiler services. Our service terms, payment conditions, warranties, and customer obligations.",
+  alternates: { canonical: "https://www.plumblinemk.co.uk/terms" },
   robots: { index: true, follow: true },
 };
 
@@ -37,14 +37,13 @@ export default function TermsPage() {
           {/* Introduction */}
           <div className="mb-12">
             <p className="text-text-secondary leading-relaxed mb-4">
-              These Terms and Conditions govern the provision of heating, boiler, and plumbing services by BoilerPro ("we", "us", "our") to customers ("you", "your"). By engaging our services, you agree to be bound by these terms.
+              These Terms and Conditions govern the provision of heating, boiler, and plumbing services by Plumbline MK ("we", "us", "our") to customers ("you", "your"). By engaging our services, you agree to be bound by these terms.
             </p>
             <p className="text-text-secondary leading-relaxed">
               <strong>Company Details:</strong><br />
-              BoilerPro<br />
+              Plumbline MK<br />
               {siteConfig.address.full}<br />
-              Company Registration Number: {siteConfig.companyNumber}<br />
-              Gas Safe Registration: {siteConfig.gasSafeNumber}
+              Gas Safe Registered: {siteConfig.gasSafeNumber}
             </p>
             <p className="text-text-secondary leading-relaxed mt-4">
               <strong>Last updated:</strong> February 2024
@@ -82,7 +81,7 @@ export default function TermsPage() {
               <div>
                 <h3 className="font-semibold text-primary mb-2">1.3 Entire Agreement</h3>
                 <p>
-                  These Terms and Conditions, together with any written quotation or contract, constitute the entire agreement between you and BoilerPro. No verbal representations or promises are binding unless confirmed in writing.
+                  These Terms and Conditions, together with any written quotation or contract, constitute the entire agreement between you and Plumbline MK. No verbal representations or promises are binding unless confirmed in writing.
                 </p>
               </div>
             </div>
@@ -315,7 +314,7 @@ export default function TermsPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-primary mb-2">6.3 Cancellation by BoilerPro</h3>
+                <h3 className="font-semibold text-primary mb-2">6.3 Cancellation by Plumbline MK</h3>
                 <p>
                   We reserve the right to cancel or reschedule appointments due to emergencies, illness, adverse weather, or other unforeseen circumstances. We will provide as much notice as possible and offer alternative dates. No cancellation fees apply when we cancel.
                 </p>

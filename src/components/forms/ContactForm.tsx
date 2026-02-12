@@ -2,7 +2,7 @@
 
 import { useState, FormEvent, useEffect } from "react";
 import { Send } from "lucide-react";
-import { services } from "@/data/siteConfig";
+import { services, siteConfig } from "@/data/siteConfig";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -31,6 +31,12 @@ export function ContactForm() {
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
+    } else {
+      const cleanPhone = formData.phone.replace(/[\s\-\(\)]/g, "");
+      const ukPhoneRegex = /^(\+44|0)(7\d{9}|[1-9]\d{8,9})$/;
+      if (!ukPhoneRegex.test(cleanPhone)) {
+        newErrors.phone = "Please enter a valid UK phone number (e.g., 07805 844 016)";
+      }
     }
 
     if (!formData.service) {
@@ -45,18 +51,37 @@ export function ContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      setIsSubmitting(true);
-      // Simulate form submission
-      console.log("Form submitted:", formData);
+    if (!validateForm()) return;
 
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-      }, 1000);
+    setIsSubmitting(true);
+    setErrors({});
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send enquiry");
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      setErrors({
+        submit:
+          error instanceof Error
+            ? error.message
+            : "Failed to send enquiry. Please try calling us instead.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -71,7 +96,7 @@ export function ContactForm() {
           service: "",
           message: "",
         });
-      }, 5000);
+      }, 10000);
       return () => clearTimeout(timer);
     }
   }, [isSubmitted]);
@@ -270,6 +295,13 @@ export function ContactForm() {
         )}
       </div>
 
+      {/* Submission Error */}
+      {errors.submit && (
+        <div role="alert" className="bg-alert/10 border border-alert/30 rounded-lg p-4 text-alert text-sm">
+          {errors.submit}
+        </div>
+      )}
+
       {/* Submit Button */}
       <button
         type="submit"
@@ -282,9 +314,9 @@ export function ContactForm() {
       </button>
 
       <p className="text-xs text-text-muted text-center">
-        We'll respond within 24 hours. For emergencies, please call{" "}
-        <a href="tel:01234567890" className="text-alert font-semibold">
-          0123 456 7890
+        We&apos;ll respond within 24 hours. For emergencies, please call{" "}
+        <a href={`tel:${siteConfig.emergencyPhone.replace(/\s/g, "")}`} className="text-alert font-semibold">
+          {siteConfig.emergencyPhone}
         </a>
       </p>
     </form>

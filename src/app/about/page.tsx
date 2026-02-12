@@ -12,17 +12,18 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "About Us | 20+ Years Experience | Gas Safe Engineers",
-  description: "Family-run boiler business with 20+ years experience in Manchester. Gas Safe registered engineers. 5,000+ installations completed. 4.9-star rating from 500+ reviews.",
-  keywords: ["about BoilerPro", "Gas Safe engineers Manchester", "boiler company Manchester", "heating engineers", "trusted plumbers"],
-  alternates: { canonical: "https://www.boilerpro.co.uk/about" },
+  title: "About Us | 10+ Years Experience | Gas Safe Engineers",
+  description: "Family-run boiler business with 10+ years experience in Milton Keynes. Gas Safe registered engineers. 100+ 5-star reviews on Google and Facebook.",
+  keywords: ["about Plumbline MK", "Gas Safe engineers Milton Keynes", "boiler company Milton Keynes", "heating engineers", "trusted plumbers"],
+  alternates: { canonical: "https://www.plumblinemk.co.uk/about" },
   openGraph: {
-    title: "About BoilerPro | 20+ Years of Heating Excellence",
-    description: "Family-run boiler business with 20+ years experience. Gas Safe registered.",
-    url: "https://www.boilerpro.co.uk/about",
-    images: [{ url: "/images/og/about.jpg", width: 1200, height: 630, alt: "BoilerPro Team" }],
+    title: "About Plumbline MK | 10+ Years of Heating Excellence",
+    description: "Family-run boiler business with 10+ years experience. Gas Safe registered.",
+    url: "https://www.plumblinemk.co.uk/about",
+    images: [{ url: "/images/og/about.jpg", width: 1200, height: 630, alt: "Plumbline MK Team" }],
   },
 };
 
@@ -59,22 +60,16 @@ const values = [
 
 const team = [
   {
-    name: "John Smith",
-    role: "Managing Director",
+    name: "Robert",
+    role: "Founder & Owner",
     description:
-      "With 25 years in the heating industry, John leads our team with passion and expertise, ensuring every customer receives top-tier service.",
+      "With over 10 years of experience in the heating industry, Robert is a licensed Gas Safe registered engineer who founded Plumbline MK with a commitment to exceptional service and customer satisfaction.",
   },
   {
-    name: "Sarah Johnson",
-    role: "Lead Engineer",
+    name: "Sam Tilney",
+    role: "Gas Engineer",
     description:
-      "Sarah is our most experienced engineer with specialist training in Worcester Bosch and Vaillant systems. Gas Safe registered for 15 years.",
-  },
-  {
-    name: "Emma Thompson",
-    role: "Office Manager",
-    description:
-      "Emma ensures everything runs smoothly behind the scenes, coordinating appointments and providing exceptional customer support.",
+      "Sam started his career in the gas industry at age 16 and has developed extensive expertise in boiler installations and repairs. Gas Safe registered with specialist training in Worcester Bosch and Vaillant systems.",
   },
 ];
 
@@ -86,19 +81,27 @@ const accreditations = [
   },
   {
     name: "Worcester Bosch Accredited",
-    number: "Platinum Installer",
-    description: "Top-tier manufacturer accreditation",
+    number: "Certified Installer",
+    description: "Authorized manufacturer accreditation",
   },
   {
-    name: "Which? Trusted Trader",
-    number: "Verified Member",
-    description: "Endorsed by Which? consumer group",
+    name: "Vaillant Accredited",
+    number: "Approved Installer",
+    description: "Official Vaillant installation partner",
   },
 ];
 
 export default function AboutPage() {
   return (
     <div>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plumblinemk.co.uk" },
+          { "@type": "ListItem", position: 2, name: "About Us" },
+        ],
+      }} />
       {/* Hero Banner */}
       <section className="bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-teal/30" />
@@ -111,7 +114,7 @@ export default function AboutPage() {
                 About Us
               </h1>
               <p className="text-white/80 text-lg md:text-xl">
-                Your trusted local boiler and heating experts serving Manchester and surrounding areas
+                Your trusted local boiler and heating experts serving Milton Keynes and surrounding areas
               </p>
             </div>
           </ScrollReveal>
@@ -126,20 +129,20 @@ export default function AboutPage() {
             <ScrollReveal direction="left">
               <div>
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-6">
-                  Our Story
+                  Our Story: Milton Keynes Heating Experts Since 2014
                 </h2>
                 <div className="space-y-4 text-text-secondary leading-relaxed">
                   <p>
-                    Founded over 20 years ago, BoilerPro began as a small family-run business with a simple mission: to provide honest, reliable heating services to our local community.
+                    Founded by Robert over 10 years ago, Plumbline MK began as a small family-run business with a simple mission: to provide honest, reliable heating services to our local community in Milton Keynes and surrounding areas up to 50 miles.
                   </p>
                   <p>
                     What started in a single van has grown into a trusted team of Gas Safe registered engineers, but we've never lost sight of our core values. We still treat every home as if it were our own, and every customer as a valued neighbor.
                   </p>
                   <p>
-                    Today, we're proud to have installed over 5,000 boilers and helped countless families stay warm and comfortable. Our 4.9-star rating and hundreds of 5-star reviews reflect our commitment to excellence in everything we do.
+                    Today, we're proud to be Worcester Bosch and Vaillant accredited installers, with 100+ 5-star reviews on Google and Facebook. Our commitment to excellence is reflected in our 10-year warranty on installations and 12-month guarantee on all repairs.
                   </p>
                   <p>
-                    From emergency repairs at midnight to carefully planned installations, we bring the same level of care and professionalism to every job. Because at BoilerPro, you're not just a customer - you're part of our extended family.
+                    From emergency repairs at midnight to carefully planned installations, we bring the same level of care and professionalism to every job. Because at Plumbline MK, you're not just a customer - you're part of our extended family.
                   </p>
                 </div>
               </div>
@@ -151,7 +154,7 @@ export default function AboutPage() {
                 <div className="aspect-[4/3] relative rounded-2xl overflow-hidden">
                   <Image
                     src="/images/about/team.jpg"
-                    alt="BoilerPro team of Gas Safe registered engineers"
+                    alt="Plumbline MK team of Gas Safe registered heating engineers in Milton Keynes"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -165,7 +168,7 @@ export default function AboutPage() {
                       <Award className="w-6 h-6 text-accent" aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-primary">20+</p>
+                      <p className="text-2xl font-bold text-primary">10+</p>
                       <p className="text-sm text-text-secondary">Years of Excellence</p>
                     </div>
                   </div>
@@ -235,7 +238,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           {/* Team Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {team.map((member, index) => (
               <ScrollReveal key={index} delay={index * 0.15}>
                 <div className="text-center group">
@@ -244,10 +247,10 @@ export default function AboutPage() {
                     <div className="aspect-[3/4] relative">
                       <Image
                         src={`/images/team/team-${index + 1}.jpg`}
-                        alt={`${member.name} - ${member.role} at BoilerPro`}
+                        alt={`${member.name} - ${member.role} at Plumbline MK`}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 33vw"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
                   </div>
@@ -292,7 +295,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {accreditations.map((accreditation, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="bg-white rounded-lg p-8 text-center shadow-sm hover:shadow-md transition-shadow duration-300 border border-warm-grey h-full">
+                <div className="bg-white rounded-lg p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-warm-grey h-full">
                   {/* Badge Placeholder */}
                   <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-primary/10 to-teal/10 rounded-full flex items-center justify-center">
                     <ShieldCheck className="w-12 h-12 text-primary" aria-hidden="true" />
@@ -331,7 +334,7 @@ export default function AboutPage() {
 
               {/* Subtitle */}
               <p className="text-lg md:text-xl text-white/90 mb-8">
-                Experience the BoilerPro difference. Get your free, no-obligation quote today.
+                Experience the Plumbline MK difference. Get your free, no-obligation quote today.
               </p>
 
               {/* Buttons */}

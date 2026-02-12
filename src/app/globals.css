@@ -1,36 +1,36 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Primary Colors */
-  --color-primary: #0A3A5C;
-  --color-primary-light: #0E4D7A;
-  --color-primary-dark: #072A42;
-  --color-accent: #D4651E;
-  --color-accent-light: #E07A3A;
-  --color-accent-dark: #B8551A;
-  --color-teal: #2B7A8E;
-  --color-teal-light: #3490A6;
-  --color-teal-dark: #226172;
+  /* Primary Colors - Plumbline MK Brand */
+  --color-primary: #0B356D;
+  --color-primary-light: #0E4280;
+  --color-primary-dark: #082850;
+  --color-accent: #DA6100;
+  --color-accent-light: #E57A25;
+  --color-accent-dark: #C05500;
+  --color-teal: #1A5276;
+  --color-teal-light: #217093;
+  --color-teal-dark: #133D59;
 
   /* Supporting Colors */
-  --color-cream: #FFF8F0;
-  --color-light-grey: #F5F7FA;
-  --color-warm-grey: #E8E4DF;
+  --color-cream: #F6F4ED;
+  --color-light-grey: #F5F5F2;
+  --color-warm-grey: #E0DDD6;
 
   /* Semantic Colors */
   --color-success: #2A7C3F;
-  --color-alert: #B83A1A;
+  --color-alert: #C73E1D;
   --color-alert-light: #D95A3E;
   --color-warning: #E69500;
 
   /* Text Colors */
-  --color-text-primary: #1A1F2E;
-  --color-text-secondary: #5A6B7D;
-  --color-text-muted: #8B95A5;
+  --color-text-primary: #000000;
+  --color-text-secondary: #4A4A4A;
+  --color-text-muted: #7A7A7A;
 
-  /* Fonts */
-  --font-heading: var(--font-plus-jakarta);
-  --font-body: var(--font-inter);
+  /* Fonts - DM Sans for both headings and body */
+  --font-heading: var(--font-dm-sans);
+  --font-body: var(--font-dm-sans);
 }
 
 /* Smooth scrolling - respects user preference */
@@ -106,6 +106,27 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 2px;
 }
 
+/* Active/pressed state for buttons and links */
+button:active:not(:disabled),
+a[class*="bg-accent"]:active,
+a[class*="bg-primary"]:active,
+a[class*="bg-teal"]:active {
+  transform: scale(0.97);
+}
+
+/* Trust bar fade edges on mobile */
+.trust-bar-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+@media (min-width: 1024px) {
+  .trust-bar-fade {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
 /* Radix Accordion animations */
 @keyframes accordion-down {
   from { height: 0; }
@@ -118,11 +139,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animate-accordion-down {
-  animation: accordion-down 0.2s ease-out;
+  animation: accordion-down 0.25s ease-out;
 }
 
 .animate-accordion-up {
-  animation: accordion-up 0.2s ease-out;
+  animation: accordion-up 0.25s ease-out;
 }
 
 /* Reduced motion support */

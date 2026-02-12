@@ -1,5 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
+import Link from "next/link";
+import { siteConfig } from "@/data/siteConfig";
+
 export default function Error({
   error,
   reset,
@@ -7,6 +11,12 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    // Log error to an error reporting service in production
+    // e.g. Sentry.captureException(error);
+    console.error("Application error:", error);
+  }, [error]);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-light-grey">
       <div className="text-center max-w-md mx-auto px-4">
@@ -27,12 +37,18 @@ export default function Error({
             Try Again
           </button>
           <a
-            href="tel:01234567890"
+            href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
             className="bg-primary hover:bg-primary-light text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
-            Call Us Instead
+            Call {siteConfig.phone}
           </a>
         </div>
+        <Link
+          href="/"
+          className="inline-block mt-4 text-sm text-text-muted hover:text-primary transition-colors"
+        >
+          Return to homepage
+        </Link>
       </div>
     </div>
   );

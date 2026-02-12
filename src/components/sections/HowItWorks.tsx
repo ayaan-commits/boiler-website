@@ -48,8 +48,11 @@ export function HowItWorks() {
                 <div className="relative">
                   {/* Connecting Line (desktop only) */}
                   {index < steps.length - 1 && (
-                    <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-warm-grey -z-10">
-                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-warm-grey rotate-45 translate-x-1/2"></div>
+                    <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 -z-10">
+                      <div className="w-full h-full bg-gradient-to-r from-accent/40 to-accent/20 rounded-full" />
+                      <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2">
+                        <div className="w-2.5 h-2.5 border-t-2 border-r-2 border-accent/40 rotate-45" />
+                      </div>
                     </div>
                   )}
 

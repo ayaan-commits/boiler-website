@@ -4,23 +4,50 @@ import Image from "next/image";
 import { Clock, Calendar, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: "Boiler Advice & Guides | Expert Tips from Gas Safe Engineers",
   description: "Expert boiler advice and heating guides from Gas Safe registered engineers. Installation tips, energy efficiency, maintenance advice and more.",
   keywords: ["boiler advice", "heating guides", "boiler maintenance tips", "energy efficiency", "boiler installation guide"],
-  alternates: { canonical: "https://www.boilerpro.co.uk/blog" },
+  alternates: { canonical: "https://www.plumblinemk.co.uk/blog" },
   openGraph: {
-    title: "Boiler Advice & Guides | BoilerPro Blog",
+    title: "Boiler Advice & Guides | Plumbline MK Blog",
     description: "Expert boiler advice and heating guides from Gas Safe engineers.",
-    url: "https://www.boilerpro.co.uk/blog",
-    images: [{ url: "/images/og/blog.jpg", width: 1200, height: 630, alt: "BoilerPro Blog" }],
+    url: "https://www.plumblinemk.co.uk/blog",
+    images: [{ url: "/images/og/blog.jpg", width: 1200, height: 630, alt: "Plumbline MK Blog" }],
   },
 };
 
 export default function BlogPage() {
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Boiler Advice & Guides",
+    description: "Expert boiler advice and heating guides from Gas Safe registered engineers.",
+    url: "https://www.plumblinemk.co.uk/blog",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: blogPosts.map((post, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `https://www.plumblinemk.co.uk/blog/${post.slug}`,
+        name: post.title,
+      })),
+    },
+  };
+
   return (
     <>
+      <JsonLd data={collectionSchema} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plumblinemk.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Blog" },
+        ],
+      }} />
       {/* Hero Section */}
       <section className="bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-teal/30" />
@@ -47,12 +74,12 @@ export default function BlogPage() {
             {blogPosts.map((post, index) => (
               <ScrollReveal key={post.slug} delay={index * 0.1}>
                 <article
-                  className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+                  className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
                 >
                   {/* Blog Post Image */}
                   <div className="relative w-full h-56 overflow-hidden">
                     <Image
-                      src="/images/blog/blog-boiler-guide.jpg"
+                      src={post.image}
                       alt={post.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"

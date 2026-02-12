@@ -13,23 +13,32 @@ import {
 import { siteConfig, trustSignals } from "@/data/siteConfig";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Free Boiler Quotes Manchester",
-  description: "Get a free boiler quote from BoilerPro. Call us for 24/7 emergency service or fill in our online form. Gas Safe registered engineers in Manchester.",
-  keywords: ["boiler quote Manchester", "contact boiler engineer", "free boiler quote", "Gas Safe engineer contact", "emergency plumber Manchester"],
-  alternates: { canonical: "https://www.boilerpro.co.uk/contact" },
+  title: "Contact Us | Free Boiler Quotes Milton Keynes",
+  description: "Get a free boiler quote from Plumbline MK. Call us for 24/7 emergency service or fill in our online form. Gas Safe registered engineers in Milton Keynes.",
+  keywords: ["boiler quote Milton Keynes", "contact boiler engineer", "free boiler quote", "Gas Safe engineer contact", "emergency plumber Milton Keynes"],
+  alternates: { canonical: "https://www.plumblinemk.co.uk/contact" },
   openGraph: {
-    title: "Contact BoilerPro | Free Quotes & 24/7 Emergency Service",
+    title: "Contact Plumbline MK | Free Quotes & 24/7 Emergency Service",
     description: "Get a free boiler quote or call us for emergency service. Gas Safe registered engineers.",
-    url: "https://www.boilerpro.co.uk/contact",
-    images: [{ url: "/images/og/contact.jpg", width: 1200, height: 630, alt: "Contact BoilerPro" }],
+    url: "https://www.plumblinemk.co.uk/contact",
+    images: [{ url: "/images/og/contact.jpg", width: 1200, height: 630, alt: "Contact Plumbline MK" }],
   },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plumblinemk.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Contact Us" },
+        ],
+      }} />
       {/* Hero Banner */}
       <section className="bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-teal/30" />
@@ -65,6 +74,10 @@ export default function ContactPage() {
                   </p>
                 </div>
                 <ContactForm />
+                <div className="mt-4 flex items-center gap-2 text-xs text-text-muted">
+                  <ShieldCheck className="w-4 h-4 text-success flex-shrink-0" aria-hidden="true" />
+                  <p>Your information is secure and will never be shared with third parties. We only use it to respond to your enquiry.</p>
+                </div>
               </div>
             </ScrollReveal>
 

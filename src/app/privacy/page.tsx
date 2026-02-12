@@ -4,9 +4,9 @@ import { Shield, Lock, Eye, FileText, Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | BoilerPro",
-  description: "Privacy policy for BoilerPro. Learn how we collect, use, and protect your personal data in accordance with UK GDPR and Data Protection Act 2018.",
-  alternates: { canonical: "https://www.boilerpro.co.uk/privacy" },
+  title: "Privacy Policy | Plumbline MK",
+  description: "Privacy policy for Plumbline MK. Learn how we collect, use, and protect your personal data in accordance with UK GDPR and Data Protection Act 2018.",
+  alternates: { canonical: "https://www.plumblinemk.co.uk/privacy" },
   robots: { index: true, follow: true },
 };
 
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
           {/* Introduction */}
           <div className="mb-12">
             <p className="text-text-secondary leading-relaxed mb-4">
-              At BoilerPro, we are committed to protecting your privacy and ensuring your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+              At Plumbline MK, we are committed to protecting your privacy and ensuring your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
             </p>
             <p className="text-text-secondary leading-relaxed">
               <strong>Last updated:</strong> February 2024

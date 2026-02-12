@@ -14,17 +14,18 @@ import {
 } from "lucide-react";
 import { services, siteConfig } from "@/data/siteConfig";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Boiler & Heating Services Manchester | Installation, Repair & Servicing",
-  description: "Complete boiler and heating services in Manchester. Installation, repair, servicing, gas safety certificates, emergency plumbing & underfloor heating.",
-  keywords: ["boiler services Manchester", "heating services", "boiler installation", "boiler repair", "gas safety certificate", "underfloor heating", "emergency plumber"],
-  alternates: { canonical: "https://www.boilerpro.co.uk/services" },
+  title: "Boiler & Heating Services Milton Keynes | Installation, Repair & Servicing",
+  description: "Complete boiler and heating services in Milton Keynes. Installation, repair, servicing, gas safety certificates, emergency plumbing & underfloor heating.",
+  keywords: ["boiler services Milton Keynes", "heating services", "boiler installation", "boiler repair", "gas safety certificate", "underfloor heating", "emergency plumber"],
+  alternates: { canonical: "https://www.plumblinemk.co.uk/services" },
   openGraph: {
-    title: "Boiler & Heating Services | BoilerPro Manchester",
+    title: "Boiler & Heating Services | Plumbline MK Milton Keynes",
     description: "Complete boiler and heating services. Installation, repair, servicing & more.",
-    url: "https://www.boilerpro.co.uk/services",
-    images: [{ url: "/images/og/services.jpg", width: 1200, height: 630, alt: "BoilerPro Services" }],
+    url: "https://www.plumblinemk.co.uk/services",
+    images: [{ url: "/images/og/services.jpg", width: 1200, height: 630, alt: "Plumbline MK Services" }],
   },
 };
 
@@ -44,6 +45,14 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen">
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plumblinemk.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Services" },
+        ],
+      }} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary via-primary to-teal py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
