@@ -50,14 +50,16 @@ export function Header() {
     <>
       {/* Top Emergency Bar */}
       <div className="bg-alert text-white text-sm">
-        <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
-          <span className="font-medium">24/7 Emergency Callout Available</span>
+        <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center gap-2">
+          <span className="font-medium hidden xs:inline">24/7 Emergency Callout Available</span>
+          <span className="font-medium xs:hidden">24/7 Emergency</span>
           <a
             href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-            className="flex items-center gap-1.5 font-semibold hover:underline"
+            className="flex items-center gap-1.5 font-semibold hover:underline shrink-0"
           >
             <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-            Call Now: {siteConfig.phone}
+            <span className="hidden xs:inline">Call Now: {siteConfig.phone}</span>
+            <span className="xs:hidden">Call Now</span>
           </a>
         </div>
       </div>

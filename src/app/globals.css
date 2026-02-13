@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* Custom breakpoint for small phones (375px+) */
+  --breakpoint-xs: 375px;
+
   /* Primary Colors - Plumbline MK Brand */
   --color-primary: #0B356D;
   --color-primary-light: #0E4280;

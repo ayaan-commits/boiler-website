@@ -111,20 +111,20 @@ export function Testimonials() {
 
         {/* Carousel */}
         <div className="relative">
-          {/* Prev/Next Arrows */}
+          {/* Prev/Next Arrows - hidden on small phones, visible from sm up */}
           <button
             onClick={scrollPrev}
-            className="absolute -left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-light-grey transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+            className="absolute left-1 sm:-left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 sm:bg-white shadow-lg hidden xs:flex items-center justify-center hover:bg-light-grey transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-5 h-5 text-primary" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-light-grey transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+            className="absolute right-1 sm:-right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 sm:bg-white shadow-lg hidden xs:flex items-center justify-center hover:bg-light-grey transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="w-5 h-5 text-primary" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
           </button>
 
           {/* Embla Viewport */}

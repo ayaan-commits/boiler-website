@@ -59,12 +59,12 @@ export function Footer() {
           {/* Services */}
           <div>
             <h3 className="font-heading font-semibold text-base mb-4">Services</h3>
-            <ul className="space-y-1 md:space-y-2.5">
+            <ul className="space-y-0.5">
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-white/65 hover:text-accent text-sm transition-colors block py-1.5 md:py-0"
+                    className="text-white/65 hover:text-accent text-sm transition-colors block py-2 md:py-1.5"
                   >
                     {service.title}
                   </Link>
@@ -76,7 +76,7 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="font-heading font-semibold text-base mb-4">Company</h3>
-            <ul className="space-y-1 md:space-y-2.5">
+            <ul className="space-y-0.5">
               {[
                 { label: "About Us", href: "/about" },
                 { label: "Reviews", href: "/reviews" },
@@ -90,7 +90,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/65 hover:text-accent text-sm transition-colors block py-1.5 md:py-0"
+                    className="text-white/65 hover:text-accent text-sm transition-colors block py-2 md:py-1.5"
                   >
                     {link.label}
                   </Link>

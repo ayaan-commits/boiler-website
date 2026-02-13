@@ -207,7 +207,7 @@ export default function ContactPage() {
       <section className="py-8 bg-white border-t border-warm-grey">
         <div className="max-w-7xl mx-auto px-4">
           <ScrollReveal>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
               {trustSignals.map((signal, index) => {
                 // Map icons to trust signals
                 const icons = [
@@ -222,12 +222,12 @@ export default function ContactPage() {
                 return (
                   <div
                     key={index}
-                    className="flex flex-col items-center text-center gap-2"
+                    className="flex flex-col items-center text-center gap-2 w-[calc(50%-0.5rem)] xs:w-[calc(33.333%-0.75rem)] md:w-auto md:flex-1"
                   >
-                    <div className="w-12 h-12 rounded-full bg-teal/10 flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-teal" aria-hidden="true" />
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-teal/10 flex items-center justify-center">
+                      <Icon className="w-5 h-5 md:w-6 md:h-6 text-teal" aria-hidden="true" />
                     </div>
-                    <p className="text-sm font-semibold text-text-primary">
+                    <p className="text-xs xs:text-sm font-semibold text-text-primary">
                       {signal}
                     </p>
                   </div>

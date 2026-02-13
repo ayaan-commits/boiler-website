@@ -129,7 +129,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="relative w-full aspect-[16/9] lg:aspect-[4/5] max-w-md mx-auto">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[4/5] max-w-md mx-auto">
               {/* Hero image */}
               <Image
                 src="/images/hero/hero-engineer.jpg"

@@ -14,19 +14,19 @@ export function StatsCounter() {
   return (
     <section className="py-16 md:py-24 bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 xs:gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <ScrollReveal key={index} delay={stat.delay} className="text-center">
-              <div className="mb-2">
+              <div className="mb-1 xs:mb-2">
                 <NumberTicker
                   value={stat.value}
                   suffix={stat.suffix}
                   decimalPlaces={stat.decimals ?? 0}
                   delay={0.3 + stat.delay}
-                  className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary"
+                  className="text-3xl xs:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary"
                 />
               </div>
-              <p className="text-sm md:text-base text-text-secondary">
+              <p className="text-xs xs:text-sm md:text-base text-text-secondary">
                 {stat.label}
               </p>
             </ScrollReveal>
