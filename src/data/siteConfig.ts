@@ -83,6 +83,15 @@ export const services = [
     price: "Call for quote",
     category: "other",
   },
+  {
+    title: "Boiler Cover Plans",
+    slug: "boiler-cover",
+    description: "Affordable monthly boiler cover plans for complete peace of mind. Choose from three tiers covering annual servicing, repairs, and full system protection.",
+    shortDesc: "Monthly cover from £16/month",
+    icon: "ShieldCheck",
+    price: "From £16/mo",
+    category: "boilers",
+  },
 ];
 
 export const serviceDetails = {
@@ -199,6 +208,29 @@ export const serviceDetails = {
       "Transparent pricing even in emergencies",
       "Trusted by homeowners and landlords alike",
       "100+ 5-star reviews from satisfied customers",
+    ],
+  },
+  "boiler-cover": {
+    whatsIncluded: [
+      "Annual boiler service included in all plans",
+      "No call-out charges for covered repairs",
+      "24/7 emergency helpline access",
+      "Priority response for covered customers",
+      "Parts and labour included (Gold & Platinum)",
+      "Full central heating system cover (Platinum)",
+      "No excess fees on claims",
+      "Monthly or annual payment options",
+      "Cancel anytime with 30 days notice",
+    ],
+    whyChooseUs: [
+      "Affordable plans starting from just £16/month",
+      "Covers annual servicing so your warranty stays valid",
+      "No hidden costs - everything included in your plan",
+      "Priority booking for covered customers",
+      "Gas Safe registered engineers for every visit",
+      "Parts and labour included - no surprise bills",
+      "Trusted by homeowners across Milton Keynes",
+      "Easy setup with flexible payment options",
     ],
   },
   "underfloor-heating": {
@@ -371,6 +403,7 @@ export const navLinks = [
           { label: "Boiler Repair", href: "/services/boiler-repair" },
           { label: "Boiler Servicing", href: "/services/boiler-servicing" },
           { label: "Gas Safety Certificate", href: "/services/gas-safety-certificate" },
+          { label: "Boiler Cover Plans", href: "/services/boiler-cover" },
         ],
       },
       {

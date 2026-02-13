@@ -9,8 +9,9 @@ import {
   Siren,
   Thermometer,
   ArrowRight,
+  Phone,
 } from "lucide-react";
-import { services } from "@/data/siteConfig";
+import { services, siteConfig } from "@/data/siteConfig";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const iconMap = {
@@ -29,11 +30,11 @@ export function ServicesGrid() {
         {/* Section Header */}
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 id="services-heading" className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-4">
+            <h2 id="services-heading" className="text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary mb-4">
               Our Services
             </h2>
             <p className="text-lg text-text-secondary">
-              From boiler installations to emergency plumbing, we've got you covered
+              From boiler installations to emergency plumbing, we&apos;ve got you covered
             </p>
           </div>
         </ScrollReveal>
@@ -42,10 +43,11 @@ export function ServicesGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
+            const isCallForQuote = service.price === "Call for quote";
 
             return (
               <ScrollReveal key={service.slug} delay={index * 0.08}>
-                <div className="bg-white border border-warm-grey/40 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full group relative overflow-hidden">
+                <div className="bg-white border border-warm-grey/40 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full group relative overflow-hidden flex flex-col">
                   {/* Top accent bar */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   {/* Icon Area */}
@@ -56,27 +58,37 @@ export function ServicesGrid() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-heading font-semibold text-primary mb-2">
+                  <h3 className="text-xl font-heading font-bold text-primary mb-2">
                     {service.title}
                   </h3>
 
                   {/* Short Description */}
-                  <p className="text-text-secondary text-sm mb-4 min-h-[40px]">
+                  <p className="text-text-secondary text-sm mb-4 min-h-[40px] flex-grow">
                     {service.shortDesc}
                   </p>
 
-                  {/* Price Indicator */}
-                  <p className="text-accent font-semibold mb-4">
-                    {service.price}
-                  </p>
+                  {/* Price / Call Button */}
+                  {isCallForQuote ? (
+                    <a
+                      href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+                      className="inline-flex items-center gap-2 bg-accent/10 text-accent font-semibold px-4 py-2 rounded-lg hover:bg-accent hover:text-white transition-all duration-200 mb-4 w-fit"
+                    >
+                      <Phone className="w-4 h-4" aria-hidden="true" />
+                      Call for Quote
+                    </a>
+                  ) : (
+                    <p className="text-accent font-bold text-lg mb-4">
+                      {service.price}
+                    </p>
+                  )}
 
                   {/* Learn More Link */}
                   <Link
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-2 text-teal font-medium hover:text-teal-dark transition-colors duration-200"
+                    className="inline-flex items-center gap-2 text-teal font-semibold hover:text-teal-dark transition-colors duration-200 group/link"
                   >
                     Learn More
-                    <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
                   </Link>
                 </div>
               </ScrollReveal>

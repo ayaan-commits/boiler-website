@@ -45,7 +45,7 @@ export function WhyChooseUs() {
         {/* Section Header */}
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 id="why-choose-us-heading" className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-4">
+            <h2 id="why-choose-us-heading" className="text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary mb-4">
               Why Choose Us
             </h2>
             <p className="text-lg text-text-secondary">
@@ -70,7 +70,7 @@ export function WhyChooseUs() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-heading font-bold text-primary mb-2">
+                <h3 className="text-xl font-heading font-extrabold text-primary mb-2">
                   {feature.title}
                 </h3>
 
@@ -81,7 +81,7 @@ export function WhyChooseUs() {
 
                 {/* Stat */}
                 <div className="pt-3 border-t border-warm-grey/40">
-                  <span className="text-2xl font-heading font-bold text-primary">{feature.stat}</span>
+                  <span className="text-2xl font-heading font-extrabold text-primary">{feature.stat}</span>
                   <span className="text-xs text-text-muted block">{feature.statLabel}</span>
                 </div>
               </div>

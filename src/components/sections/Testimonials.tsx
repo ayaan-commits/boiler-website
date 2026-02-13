@@ -20,7 +20,7 @@ const sourceLabels = {
 
 export function Testimonials() {
   const autoplayPlugin = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -93,7 +93,7 @@ export function Testimonials() {
         {/* Section Header with Google Rating */}
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 id="testimonials-heading" className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-4">
+            <h2 id="testimonials-heading" className="text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary mb-4">
               What Our Customers Say
             </h2>
             {/* Rating summary badge */}
@@ -196,8 +196,8 @@ export function Testimonials() {
                 className={cn(
                   "rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2",
                   selectedIndex === index
-                    ? "bg-accent w-8 h-2.5"
-                    : "bg-warm-grey hover:bg-text-muted w-2.5 h-2.5"
+                    ? "bg-accent w-10 h-3"
+                    : "bg-warm-grey hover:bg-text-muted w-3 h-3"
                 )}
                 aria-label={`Go to slide ${index + 1}`}
                 aria-current={selectedIndex === index ? "true" : undefined}

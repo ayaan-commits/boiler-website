@@ -71,6 +71,12 @@ const team = [
     description:
       "Sam started his career in the gas industry at age 16 and has developed extensive expertise in boiler installations and repairs. Gas Safe registered with specialist training in Worcester Bosch and Vaillant systems.",
   },
+  {
+    name: "Casey",
+    role: "Engineer",
+    description:
+      "Casey brings hands-on expertise and a dedicated work ethic to the Plumbline MK team. Skilled in boiler servicing, repairs, and installations, Casey is committed to delivering high-quality workmanship on every job.",
+  },
 ];
 
 const accreditations = [
@@ -238,7 +244,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           {/* Team Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <ScrollReveal key={index} delay={index * 0.15}>
                 <div className="text-center group">
