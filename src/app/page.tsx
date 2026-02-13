@@ -1,14 +1,24 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
+import { TrustLogos } from "@/components/sections/TrustLogos";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { StatsCounter } from "@/components/sections/StatsCounter";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { FAQSection } from "@/components/sections/FAQSection";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/data/siteConfig";
+
+const Testimonials = dynamic(
+  () => import("@/components/sections/Testimonials").then((mod) => mod.Testimonials),
+  { ssr: true }
+);
+
+const FAQSection = dynamic(
+  () => import("@/components/sections/FAQSection").then((mod) => mod.FAQSection),
+  { ssr: true }
+);
 
 export const metadata: Metadata = {
   title: "Expert Plumbing & Heating Services Milton Keynes | Plumbline MK",
@@ -107,6 +117,7 @@ export default function Home() {
     <>
       <JsonLd data={localBusinessSchema} />
       <Hero />
+      <TrustLogos />
       <ServicesGrid />
       <WhyChooseUs />
       <HowItWorks />

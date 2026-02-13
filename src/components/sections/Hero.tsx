@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Phone, ShieldCheck, Star, Clock } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { motion, type Variants } from "framer-motion";
+import { Button } from "@/components/ui/Button";
 
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -85,25 +86,20 @@ export function Hero() {
               variants={fadeIn}
               custom={3}
             >
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white px-7 py-3.5 rounded-lg text-base font-semibold transition-colors shadow-lg shadow-accent/25"
-              >
-                Get a Free Quote
-              </Link>
-              <a
-                href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                className="inline-flex items-center justify-center gap-2 border-2 border-teal text-white hover:bg-teal/20 px-7 py-3.5 rounded-lg text-base font-semibold transition-colors"
-              >
-                <Phone className="w-4 h-4" aria-hidden="true" />
-                {siteConfig.phone}
-              </a>
-              <a
-                href={`tel:${siteConfig.emergencyPhone.replace(/\s/g, "")}`}
-                className="inline-flex items-center justify-center gap-2 bg-alert hover:bg-alert-light text-white px-7 py-3.5 rounded-lg text-base font-semibold transition-colors pulse-emergency"
-              >
-                Emergency Callout
-              </a>
+              <Button asChild size="lg" variant="default" className="shadow-lg shadow-accent/25">
+                <Link href="/contact">Get a Free Quote</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
+                <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}>
+                  <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
+                  {siteConfig.phone}
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="emergency">
+                <a href={`tel:${siteConfig.emergencyPhone.replace(/\s/g, "")}`}>
+                  Emergency Callout
+                </a>
+              </Button>
             </motion.div>
 
             {/* Quick stats */}
@@ -128,12 +124,12 @@ export function Hero() {
 
           {/* Right - Image */}
           <motion.div
-            className="relative hidden lg:block"
+            className="relative"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="relative w-full aspect-[4/5] max-w-md mx-auto">
+            <div className="relative w-full aspect-[16/9] lg:aspect-[4/5] max-w-md mx-auto">
               {/* Hero image */}
               <Image
                 src="/images/hero/hero-engineer.jpg"
@@ -141,11 +137,11 @@ export function Hero() {
                 fill
                 className="object-cover rounded-2xl"
                 priority
-                sizes="(max-width: 1024px) 0vw, 450px"
+                sizes="(max-width: 1024px) 100vw, 450px"
               />
               {/* Floating badge */}
               <motion.div
-                className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3"
+                className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-3 lg:p-4 flex items-center gap-3 hidden sm:flex"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
@@ -163,7 +159,7 @@ export function Hero() {
               </motion.div>
               {/* Floating rating */}
               <motion.div
-                className="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3"
+                className="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl p-3 lg:p-4 flex items-center gap-3 hidden sm:flex"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 0.5 }}

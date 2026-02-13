@@ -1,32 +1,40 @@
 "use client";
 
-import { ShieldCheck, Clock, BadgePoundSterling, Award } from "lucide-react";
+import { ShieldCheck, Clock, BadgePoundSterling, Award, Star, Wrench } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const features = [
   {
     icon: ShieldCheck,
     title: "Gas Safe Registered",
-    description: "All engineers certified",
+    description: "Every engineer is fully certified and Gas Safe registered. Your safety is our top priority.",
     color: "bg-teal",
+    stat: "100%",
+    statLabel: "Certified",
   },
   {
     icon: Clock,
     title: "Fast Response Time",
-    description: "Same-day service available",
+    description: "Same-day service and 24/7 emergency callouts. We're there when you need us most.",
     color: "bg-accent",
+    stat: "24/7",
+    statLabel: "Available",
   },
   {
     icon: BadgePoundSterling,
     title: "Transparent Pricing",
-    description: "No hidden fees, ever",
+    description: "Upfront, honest quotes with no hidden fees. You know exactly what you'll pay before we start.",
     color: "bg-primary",
+    stat: "0",
+    statLabel: "Hidden Fees",
   },
   {
     icon: Award,
-    title: "12-Month Guarantee",
-    description: "All work fully guaranteed",
+    title: "Guaranteed Work",
+    description: "12-month guarantee on all repairs. 10-year warranty on new boiler installations.",
     color: "bg-success",
+    stat: "10yr",
+    statLabel: "Warranty",
   },
 ];
 
@@ -40,6 +48,9 @@ export function WhyChooseUs() {
             <h2 id="why-choose-us-heading" className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-4">
               Why Choose Us
             </h2>
+            <p className="text-lg text-text-secondary">
+              Trusted by over 100 homeowners across Milton Keynes
+            </p>
           </div>
         </ScrollReveal>
 
@@ -47,23 +58,32 @@ export function WhyChooseUs() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
-              <div className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+              <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full border border-warm-grey/30 group relative overflow-hidden">
+                {/* Top accent bar */}
+                <div className={`absolute top-0 left-0 right-0 h-1 ${feature.color} opacity-70 group-hover:opacity-100 transition-opacity`} />
+
                 {/* Icon Circle */}
                 <div className="flex justify-center mb-4">
-                  <div className={`w-16 h-16 rounded-full ${feature.color} flex items-center justify-center`}>
+                  <div className={`w-16 h-16 rounded-full ${feature.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                     <feature.icon className="w-8 h-8 text-white" aria-hidden="true" />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-heading font-semibold text-primary mb-2">
+                <h3 className="text-lg font-heading font-bold text-primary mb-2">
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-text-secondary text-sm">
+                <p className="text-text-secondary text-sm leading-relaxed mb-4">
                   {feature.description}
                 </p>
+
+                {/* Stat */}
+                <div className="pt-3 border-t border-warm-grey/40">
+                  <span className="text-2xl font-heading font-bold text-primary">{feature.stat}</span>
+                  <span className="text-xs text-text-muted block">{feature.statLabel}</span>
+                </div>
               </div>
             </ScrollReveal>
           ))}

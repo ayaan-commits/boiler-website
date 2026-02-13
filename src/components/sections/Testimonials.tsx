@@ -8,6 +8,16 @@ import Autoplay from "embla-carousel-autoplay";
 import { cn } from "@/lib/utils";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
+const sourceColors = {
+  google: "bg-blue-50 text-blue-700 border-blue-200",
+  facebook: "bg-indigo-50 text-indigo-700 border-indigo-200",
+};
+
+const sourceLabels = {
+  google: "Google Review",
+  facebook: "Facebook Review",
+};
+
 export function Testimonials() {
   const autoplayPlugin = useRef(
     Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
@@ -80,12 +90,22 @@ export function Testimonials() {
   return (
     <section aria-labelledby="testimonials-heading" className="py-16 md:py-24 bg-light-grey">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header with Google Rating */}
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 id="testimonials-heading" className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-4">
               What Our Customers Say
             </h2>
+            {/* Rating summary badge */}
+            <div className="inline-flex items-center gap-3 bg-white rounded-full px-5 py-2.5 shadow-sm border border-warm-grey/50">
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" aria-hidden="true" />
+                ))}
+              </div>
+              <span className="font-bold text-primary">5.0</span>
+              <span className="text-text-secondary text-sm">from 100+ reviews on Google & Facebook</span>
+            </div>
           </div>
         </ScrollReveal>
 
@@ -112,36 +132,52 @@ export function Testimonials() {
             <div className="flex gap-6">
               {testimonials.map((testimonial, index) => (
                 <div
-                  key={index}
+                  key={testimonial.name + index}
                   className="flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0"
                   role="group"
                   aria-label={`Testimonial ${index + 1} of ${testimonials.length}`}
                 >
-                  <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
-                    {/* Star Rating */}
-                    <div className="flex gap-1 mb-4" role="img" aria-label="5 out of 5 stars">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-5 h-5 fill-amber-400 text-amber-400"
-                          aria-hidden="true"
-                        />
-                      ))}
+                  <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col border border-warm-grey/30">
+                    {/* Top row: Stars + Source badge */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex gap-0.5" role="img" aria-label={`${testimonial.rating} out of 5 stars`}>
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4.5 h-4.5 fill-amber-400 text-amber-400"
+                            aria-hidden="true"
+                          />
+                        ))}
+                      </div>
+                      <span className={cn(
+                        "text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border",
+                        sourceColors[testimonial.source]
+                      )}>
+                        {sourceLabels[testimonial.source]}
+                      </span>
                     </div>
 
                     {/* Quote Text */}
-                    <blockquote className="text-text-primary mb-4 flex-grow">
+                    <blockquote className="text-text-primary text-sm leading-relaxed mb-5 flex-grow">
                       &ldquo;{testimonial.text}&rdquo;
                     </blockquote>
 
-                    {/* Customer Name & Location */}
-                    <div className="border-t border-warm-grey pt-4">
-                      <p className="font-semibold text-primary">
-                        {testimonial.name}
-                      </p>
-                      <p className="text-sm text-text-secondary">
-                        {testimonial.location}
-                      </p>
+                    {/* Customer with avatar */}
+                    <div className="border-t border-warm-grey/50 pt-4 flex items-center gap-3">
+                      {/* Avatar circle with initials */}
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <span className="text-sm font-bold text-primary">
+                          {testimonial.initials}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-primary text-sm">
+                          {testimonial.name}
+                        </p>
+                        <p className="text-xs text-text-muted">
+                          {testimonial.location}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

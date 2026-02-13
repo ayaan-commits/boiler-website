@@ -28,8 +28,8 @@
   --color-text-secondary: #4A4A4A;
   --color-text-muted: #7A7A7A;
 
-  /* Fonts - DM Sans for both headings and body */
-  --font-heading: var(--font-dm-sans);
+  /* Fonts - Nunito for headings (matches Arial Rounded MT), DM Sans for body (matches Acumin Pro) */
+  --font-heading: var(--font-nunito);
   --font-body: var(--font-dm-sans);
 }
 
@@ -125,6 +125,25 @@ a[class*="bg-teal"]:active {
     -webkit-mask-image: none;
     mask-image: none;
   }
+}
+
+/* Marquee animations */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+@keyframes marquee-vertical {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-100% - var(--gap))); }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) linear infinite;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
 }
 
 /* Radix Accordion animations */

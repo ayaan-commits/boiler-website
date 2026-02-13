@@ -45,9 +45,11 @@ export function ServicesGrid() {
 
             return (
               <ScrollReveal key={service.slug} delay={index * 0.08}>
-                <div className="bg-white border border-warm-grey rounded-lg p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full group">
+                <div className="bg-white border border-warm-grey/40 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full group relative overflow-hidden">
+                  {/* Top accent bar */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   {/* Icon Area */}
-                  <div className="w-14 h-14 rounded-full bg-cream flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 rounded-full bg-cream flex items-center justify-center mb-4 group-hover:bg-accent/10 group-hover:scale-110 transition-all duration-300">
                     {IconComponent && (
                       <IconComponent className="w-7 h-7 text-accent" aria-hidden="true" />
                     )}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, MessageCircle } from "lucide-react";
 import { siteConfig, services } from "@/data/siteConfig";
 
@@ -10,10 +11,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <span className="font-heading text-xl font-bold tracking-tight">
-                PLUMBLINE <span className="text-accent">MK</span>
-              </span>
+            <Link href="/" className="flex items-center mb-4">
+              <Image
+                src="/images/brand/logo-white.png"
+                alt="Plumbline MK"
+                width={160}
+                height={43}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-white/65 text-sm leading-relaxed mb-4">
               Your trusted local plumbing and heating experts in Milton Keynes.

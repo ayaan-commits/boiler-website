@@ -2,9 +2,11 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { siteConfig, navLinks, trustSignals } from "@/data/siteConfig";
 import { cn } from "@/lib/utils";
+import { Marquee } from "@/components/ui/Marquee";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -69,10 +71,15 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 shrink-0">
-              <span className="font-heading text-xl lg:text-2xl font-bold text-white tracking-tight">
-                PLUMBLINE <span className="text-accent">MK</span>
-              </span>
+            <Link href="/" className="flex items-center shrink-0">
+              <Image
+                src="/images/brand/logo-white.png"
+                alt="Plumbline MK"
+                width={180}
+                height={48}
+                className="h-10 lg:h-12 w-auto"
+                priority
+              />
             </Link>
 
             {/* Desktop Nav */}
@@ -283,9 +290,9 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Trust Bar */}
-      <div className="bg-cream border-b border-warm-grey">
-        <div className="max-w-7xl mx-auto px-4 py-2.5 flex justify-center gap-6 lg:gap-10 overflow-x-auto scrollbar-hide trust-bar-fade">
+      {/* Trust Bar - Infinite Marquee */}
+      <div className="bg-cream border-b border-warm-grey py-2.5 overflow-hidden trust-bar-fade">
+        <Marquee speed="slow" pauseOnHover className="[--gap:2.5rem]">
           {trustSignals.map((signal) => (
             <span
               key={signal}
@@ -295,7 +302,7 @@ export function Header() {
               {signal}
             </span>
           ))}
-        </div>
+        </Marquee>
       </div>
     </>
   );
