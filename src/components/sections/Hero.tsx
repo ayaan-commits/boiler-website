@@ -137,7 +137,7 @@ export function Hero() {
             {/* Secondary CTA */}
             <a
               href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-              className="flex items-center justify-center gap-2.5 bg-white/10 backdrop-blur-sm text-white font-bold text-[15px] py-3.5 px-6 rounded-xl border border-white/20 transition-all duration-300 hover:bg-white/20 active:scale-[0.97]"
+              className="flex items-center justify-center gap-2.5 bg-white/10 backdrop-blur-sm text-white font-bold text-[15px] py-3.5 px-6 rounded-xl border border-white/20 transition-all duration-300 hover:bg-white/20 active:scale-[0.97] whitespace-nowrap"
             >
               <Phone className="w-4 h-4 text-accent" aria-hidden="true" />
               {siteConfig.phone}
@@ -263,7 +263,7 @@ export function Hero() {
                 {/* Phone CTA */}
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                  className="group inline-flex items-center justify-center gap-2.5 bg-white/[0.08] backdrop-blur-sm border border-white/15 text-white hover:bg-white/[0.15] font-bold text-[15px] h-[52px] px-7 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+                  className="group inline-flex items-center justify-center gap-2.5 bg-white/[0.08] backdrop-blur-sm border border-white/15 text-white hover:bg-white/[0.15] font-bold text-[15px] h-[52px] px-7 rounded-xl transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
                 >
                   <Phone className="w-4 h-4 text-accent" aria-hidden="true" />
                   {siteConfig.phone}
