@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { FloatingCTA } from "@/components/ui/FloatingCTA";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -91,6 +92,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <ScrollToTop />
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
