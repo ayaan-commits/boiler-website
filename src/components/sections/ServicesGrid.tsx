@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   Siren,
   Thermometer,
+  Droplets,
   ArrowRight,
   Phone,
 } from "lucide-react";
@@ -21,6 +22,7 @@ const iconMap = {
   ShieldCheck,
   Siren,
   Thermometer,
+  Droplets,
 };
 
 export function ServicesGrid() {
