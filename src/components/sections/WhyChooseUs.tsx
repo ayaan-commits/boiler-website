@@ -57,8 +57,8 @@ export function WhyChooseUs() {
         {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
-            <ScrollReveal key={index} delay={index * 0.1}>
-              <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full border border-warm-grey/30 group relative overflow-hidden">
+            <ScrollReveal key={index} delay={index * 0.1} className="h-full">
+              <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full border border-warm-grey/30 group relative overflow-hidden flex flex-col">
                 {/* Top accent bar */}
                 <div className={`absolute top-0 left-0 right-0 h-1 ${feature.color} opacity-70 group-hover:opacity-100 transition-opacity`} />
 
@@ -75,12 +75,12 @@ export function WhyChooseUs() {
                 </h3>
 
                 {/* Description */}
-                <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                <p className="text-text-secondary text-sm leading-relaxed mb-4 flex-grow">
                   {feature.description}
                 </p>
 
                 {/* Stat */}
-                <div className="pt-3 border-t border-warm-grey/40">
+                <div className="pt-3 border-t border-warm-grey/40 mt-auto">
                   <span className="text-2xl font-heading font-extrabold text-primary">{feature.stat}</span>
                   <span className="text-xs text-text-muted block">{feature.statLabel}</span>
                 </div>

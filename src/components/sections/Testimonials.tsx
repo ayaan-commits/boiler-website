@@ -133,7 +133,7 @@ export function Testimonials() {
               {testimonials.map((testimonial, index) => (
                 <div
                   key={testimonial.name + index}
-                  className="flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0"
+                  className="flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0 flex"
                   role="group"
                   aria-label={`Testimonial ${index + 1} of ${testimonials.length}`}
                 >

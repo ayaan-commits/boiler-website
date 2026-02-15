@@ -48,7 +48,7 @@ export function ServicesGrid() {
             const isCallForQuote = service.price === "Call for quote";
 
             return (
-              <ScrollReveal key={service.slug} delay={index * 0.08}>
+              <ScrollReveal key={service.slug} delay={index * 0.08} className="h-full">
                 <div className="bg-white border border-warm-grey/40 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 h-full group relative overflow-hidden flex flex-col">
                   {/* Top accent bar */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -87,7 +87,7 @@ export function ServicesGrid() {
                   {/* Learn More Link */}
                   <Link
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-2 text-teal font-semibold hover:text-teal-dark transition-colors duration-200 group/link"
+                    className="inline-flex items-center gap-2 text-teal font-semibold hover:text-teal-dark transition-colors duration-200 group/link mt-auto"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
