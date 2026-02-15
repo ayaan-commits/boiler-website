@@ -92,6 +92,15 @@ export const services = [
     price: "From £16/mo",
     category: "boilers",
   },
+  {
+    title: "Powerflushing",
+    slug: "powerflushing",
+    description: "Professional powerflushing service in Milton Keynes to restore your central heating efficiency. We remove sludge, rust, and debris from your system for better performance and lower energy bills.",
+    shortDesc: "Restore heating efficiency & reduce bills",
+    icon: "Droplets",
+    price: "Call for quote",
+    category: "other",
+  },
 ];
 
 export const serviceDetails = {
@@ -256,6 +265,29 @@ export const serviceDetails = {
       "Full aftercare and maintenance support",
     ],
   },
+  "powerflushing": {
+    whatsIncluded: [
+      "Full central heating system assessment",
+      "Connection of powerflushing machine to your system",
+      "High-velocity flush of all radiators and pipework",
+      "Removal of sludge, rust, and limescale deposits",
+      "Chemical treatment to break down stubborn blockages",
+      "System inhibitor added to prevent future corrosion",
+      "Magnetic filter check and cleaning",
+      "Radiator balancing after flush",
+      "Post-flush system test and performance check",
+    ],
+    whyChooseUs: [
+      "Experienced engineers using professional-grade equipment",
+      "Noticeable improvement in heating performance",
+      "Can reduce energy bills by improving boiler efficiency",
+      "Extends the lifespan of your boiler and radiators",
+      "Eliminates cold spots on radiators",
+      "Reduces boiler noise caused by sludge build-up",
+      "Transparent pricing with no hidden costs",
+      "Trusted by homeowners across Milton Keynes",
+    ],
+  },
 };
 
 export const trustSignals = [
@@ -411,6 +443,7 @@ export const navLinks = [
         items: [
           { label: "Emergency Plumbing", href: "/services/emergency-plumbing" },
           { label: "Underfloor Heating", href: "/services/underfloor-heating" },
+          { label: "Powerflushing", href: "/services/powerflushing" },
         ],
       },
     ],

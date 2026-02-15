@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   Siren,
   Thermometer,
+  Droplets,
   Check,
   Phone,
   Clock,
@@ -27,6 +28,7 @@ const iconMap = {
   ShieldCheck,
   Siren,
   Thermometer,
+  Droplets,
 };
 
 // Map service slugs to images
@@ -38,6 +40,7 @@ const serviceImages: Record<string, string> = {
   "emergency-plumbing": "/images/services/emergency-plumbing.jpg",
   "underfloor-heating": "/images/services/underfloor-heating.jpg",
   "boiler-cover": "/images/services/boiler-installation.jpg",
+  "powerflushing": "/images/services/powerflush.jpg",
 };
 
 const boilerCoverPlans = [

@@ -48,30 +48,6 @@ export function Header() {
 
   return (
     <>
-      {/* Top Emergency Bar */}
-      <div className="bg-alert text-white">
-        <div className="max-w-7xl mx-auto px-4 py-2 md:py-2.5 flex justify-between items-center gap-2">
-          {/* Full text - desktop only */}
-          <span className="font-bold text-sm hidden md:inline tracking-wide uppercase whitespace-nowrap">
-            <span className="animate-pulse inline-block mr-1.5">🔴</span>
-            24/7 Emergency Service — Need Help Now?
-          </span>
-          {/* Short text - mobile & tablet */}
-          <span className="font-bold text-xs md:hidden tracking-wide uppercase whitespace-nowrap">
-            <span className="animate-pulse inline-block mr-1">🔴</span>
-            24/7 Emergency
-          </span>
-          <a
-            href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-            className="flex items-center gap-1.5 md:gap-2 bg-white text-alert font-bold text-xs md:text-sm px-3 md:px-4 py-1.5 rounded-full hover:bg-white/90 transition-colors shrink-0"
-          >
-            <Phone className="w-3.5 h-3.5 md:w-4 md:h-4" aria-hidden="true" />
-            <span className="hidden sm:inline">Call: {siteConfig.phone}</span>
-            <span className="sm:hidden">Call Now</span>
-          </a>
-        </div>
-      </div>
-
       {/* Main Navigation - sticky to viewport */}
       <nav
         className="bg-primary sticky top-0 z-50 shadow-lg"

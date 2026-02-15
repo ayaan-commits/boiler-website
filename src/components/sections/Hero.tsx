@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, ShieldCheck, Star, Clock, ArrowRight, CheckCircle, Zap } from "lucide-react";
+import { Phone, ShieldCheck, Star, Clock, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { motion, type Variants } from "framer-motion";
 
@@ -91,36 +91,13 @@ export function Hero() {
             Gas Safe registered engineers delivering reliable, affordable services with transparent pricing across Milton Keynes.
           </motion.p>
 
-          {/* Selling points - inline */}
-          <motion.div
-            className="flex flex-wrap gap-x-3.5 gap-y-1 mb-5"
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            custom={3}
-          >
-            {[
-              "Free upfront quotes",
-              "10-year warranty",
-              "100+ 5-star reviews",
-            ].map((point) => (
-              <div
-                key={point}
-                className="flex items-center gap-1.5 text-white/85 text-[12px] sm:text-[13px]"
-              >
-                <CheckCircle className="w-3.5 h-3.5 text-accent shrink-0" aria-hidden="true" />
-                <span>{point}</span>
-              </div>
-            ))}
-          </motion.div>
-
           {/* CTA Buttons */}
           <motion.div
             className="flex flex-col gap-2.5 mb-5"
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            custom={4}
+            custom={3}
           >
             {/* Primary CTA - Shimmer */}
             <Link
@@ -150,7 +127,7 @@ export function Hero() {
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            custom={5}
+            custom={4}
           >
             {[
               { value: "10+", label: "Years Exp." },
@@ -174,11 +151,6 @@ export function Hero() {
         {/* Background */}
         <div className="absolute inset-0 bg-primary">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_80%_50%,rgba(26,82,118,0.4),transparent)]" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(218,97,0,0.06),transparent_50%)]" />
-          <div className="absolute inset-0 opacity-[0.03]" style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
-          }} />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 xl:px-8">
@@ -268,39 +240,8 @@ export function Hero() {
                   <Phone className="w-4 h-4 text-accent" aria-hidden="true" />
                   {siteConfig.phone}
                 </a>
-
-                {/* Emergency CTA */}
-                <a
-                  href={`tel:${siteConfig.emergencyPhone.replace(/\s/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 bg-alert/90 hover:bg-alert text-white font-bold text-[15px] h-[52px] px-7 rounded-xl pulse-emergency transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <Zap className="w-4 h-4" aria-hidden="true" />
-                  Emergency
-                </a>
               </motion.div>
 
-              {/* Quick stats */}
-              <motion.div
-                className="flex items-center gap-6"
-                initial="hidden"
-                animate="visible"
-                variants={fadeUp}
-                custom={4}
-              >
-                {[
-                  { value: "10+", label: "Years Experience" },
-                  { value: "100+", label: "5-Star Reviews" },
-                  { value: "5.0", label: "Google Rating" },
-                ].map(({ value, label }, index) => (
-                  <div key={label} className="flex items-center gap-3">
-                    {index > 0 && <div className="w-px h-8 bg-white/15" />}
-                    <div className={index > 0 ? "pl-3" : ""}>
-                      <p className="text-white text-xl xl:text-2xl font-extrabold leading-none">{value}</p>
-                      <p className="text-white/50 text-[11px] mt-0.5">{label}</p>
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
             </div>
 
             {/* Right - Image with floating elements */}
@@ -340,28 +281,6 @@ export function Hero() {
                   </div>
                 </motion.div>
 
-                {/* Floating rating */}
-                <motion.div
-                  className="absolute -top-4 -right-4 bg-white rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] p-3 z-20"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                >
-                  <div className="flex text-warning text-xs mb-0.5">{"★★★★★"}</div>
-                  <p className="text-base font-extrabold text-text-primary leading-none">5.0/5</p>
-                  <p className="text-[10px] text-text-muted mt-0.5">100+ Reviews</p>
-                </motion.div>
-
-                {/* Floating accent - price */}
-                <motion.div
-                  className="absolute top-1/2 -translate-y-1/2 -left-6 bg-accent text-white rounded-lg shadow-[0_8px_24px_rgba(218,97,0,0.3)] px-3.5 py-2.5 z-20"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1, duration: 0.5 }}
-                >
-                  <p className="text-[9px] font-medium uppercase tracking-wider opacity-80">Installations from</p>
-                  <p className="text-lg font-extrabold leading-none mt-0.5">&pound;1,995</p>
-                </motion.div>
               </div>
             </motion.div>
           </div>
