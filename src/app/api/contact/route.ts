@@ -1,13 +1,4 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
-
-function getResend() {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    throw new Error("RESEND_API_KEY environment variable is not configured");
-  }
-  return new Resend(apiKey);
-}
 
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 const MAX_REQUESTS = 5;
@@ -64,51 +55,32 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send email to business
-    const resend = getResend();
-    const { error: sendError } = await resend.emails.send({
-      from: process.env.EMAIL_FROM || "Plumbline MK Website <onboarding@resend.dev>",
-      to: process.env.EMAIL_TO || "enquiries@plumblinemk.co.uk",
-      replyTo: email,
-      subject: `New Enquiry: ${service || "General"} - ${name}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background-color: #0B356D; padding: 20px; text-align: center;">
-            <h1 style="color: white; margin: 0; font-size: 24px;">New Website Enquiry</h1>
-          </div>
-          <div style="padding: 24px; background-color: #f9f9f9;">
-            <table style="width: 100%; border-collapse: collapse;">
-              <tr>
-                <td style="padding: 8px 0; font-weight: bold; width: 120px; vertical-align: top;">Name:</td>
-                <td style="padding: 8px 0;">${name}</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px 0; font-weight: bold; vertical-align: top;">Email:</td>
-                <td style="padding: 8px 0;"><a href="mailto:${email}">${email}</a></td>
-              </tr>
-              <tr>
-                <td style="padding: 8px 0; font-weight: bold; vertical-align: top;">Phone:</td>
-                <td style="padding: 8px 0;"><a href="tel:${phone.replace(/\s/g, "")}">${phone}</a></td>
-              </tr>
-              <tr>
-                <td style="padding: 8px 0; font-weight: bold; vertical-align: top;">Service:</td>
-                <td style="padding: 8px 0;">${service || "Not specified"}</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px 0; font-weight: bold; vertical-align: top;">Message:</td>
-                <td style="padding: 8px 0;">${message.replace(/\n/g, "<br>")}</td>
-              </tr>
-            </table>
-          </div>
-          <div style="padding: 16px; text-align: center; color: #666; font-size: 12px;">
-            Sent from plumblinemk.co.uk contact form
-          </div>
-        </div>
-      `,
+    // Send to n8n webhook (handles Google Sheets + email notification)
+    const webhookUrl = process.env.N8N_WEBHOOK_URL;
+    if (!webhookUrl) {
+      console.error("N8N_WEBHOOK_URL environment variable is not configured");
+      return NextResponse.json(
+        { error: "Failed to send your enquiry. Please try calling us instead." },
+        { status: 500 }
+      );
+    }
+
+    const webhookResponse = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        service: service || "Not specified",
+        message: message.trim(),
+        submittedAt: new Date().toISOString(),
+        source: "plumblinemk.co.uk",
+      }),
     });
 
-    if (sendError) {
-      console.error("Email send error:", sendError);
+    if (!webhookResponse.ok) {
+      console.error("n8n webhook error:", webhookResponse.status, await webhookResponse.text());
       return NextResponse.json(
         { error: "Failed to send your enquiry. Please try calling us instead." },
         { status: 500 }
