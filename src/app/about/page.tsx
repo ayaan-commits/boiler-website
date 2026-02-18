@@ -84,16 +84,19 @@ const accreditations = [
     name: "Gas Safe Register",
     number: `#${siteConfig.gasSafeNumber}`,
     description: "Official gas safety registration",
+    logo: "/images/accreditations/gas-safe.svg",
   },
   {
     name: "Worcester Bosch Accredited",
     number: "Certified Installer",
     description: "Authorized manufacturer accreditation",
+    logo: "/images/accreditations/worcester-bosch.svg",
   },
   {
     name: "Vaillant Accredited",
     number: "Approved Installer",
     description: "Official Vaillant installation partner",
+    logo: "/images/accreditations/vaillant.svg",
   },
 ];
 
@@ -145,7 +148,7 @@ export default function AboutPage() {
                     What started in a single van has grown into a trusted team of Gas Safe registered engineers, but we've never lost sight of our core values. We still treat every home as if it were our own, and every customer as a valued neighbor.
                   </p>
                   <p>
-                    Today, we're proud to be Worcester Bosch and Vaillant accredited installers, with 100+ 5-star reviews on Google and Facebook. Our commitment to excellence is reflected in our 10-year warranty on installations and 12-month guarantee on all repairs.
+                    Today, we're proud to be Worcester Bosch and Vaillant accredited installers, with 100+ 5-star reviews on Google and Facebook. Our commitment to excellence is reflected in our up to 12-year warranty on installations and 12-month guarantee on all repairs.
                   </p>
                   <p>
                     From emergency repairs at midnight to carefully planned installations, we bring the same level of care and professionalism to every job. Because at Plumbline MK, you're not just a customer - you're part of our extended family.
@@ -302,9 +305,15 @@ export default function AboutPage() {
             {accreditations.map((accreditation, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
                 <div className="bg-white rounded-lg p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-warm-grey h-full">
-                  {/* Badge Placeholder */}
-                  <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-primary/10 to-teal/10 rounded-full flex items-center justify-center">
-                    <ShieldCheck className="w-12 h-12 text-primary" aria-hidden="true" />
+                  {/* Brand Logo */}
+                  <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                    <Image
+                      src={accreditation.logo}
+                      alt={accreditation.name}
+                      width={96}
+                      height={96}
+                      className="w-auto h-20 object-contain"
+                    />
                   </div>
 
                   {/* Name */}

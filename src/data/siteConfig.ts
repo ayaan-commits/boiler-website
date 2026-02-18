@@ -24,7 +24,7 @@ export const siteConfig = {
     whatsapp: "https://wa.me/447805844016",
     google: "https://google.com", // TODO: Replace with actual Google Business Profile URL (e.g. https://g.page/plumblinemk)
   },
-  gasSafeNumber: "XXXXXX", // TODO: Replace with actual Gas Safe registration number before launch
+  gasSafeNumber: "957816",
   domain: "plumblinemk.co.uk",
 };
 
@@ -32,7 +32,7 @@ export const services = [
   {
     title: "Boiler Installation",
     slug: "boiler-installation",
-    description: "Professional combi boiler installation Milton Keynes homeowners can trust. Worcester Bosch & Vaillant accredited with 10-year warranty on new installations.",
+    description: "Professional combi boiler installation Milton Keynes homeowners can trust. Worcester Bosch & Vaillant accredited with up to 12-year warranty on new installations.",
     shortDesc: "New boiler from £1,995 inc. free Hive thermostat",
     icon: "Flame",
     price: "From £1,995",
@@ -112,7 +112,7 @@ export const serviceDetails = {
       "Full system flush and cleaning",
       "Free Hive smart thermostat included",
       "Building regulations certification",
-      "10-year manufacturer's warranty on new boiler",
+      "Up to 12-year manufacturer's warranty on new boiler",
       "12-month workmanship guarantee on pipework",
       "Aftercare support and emergency cover",
     ],
@@ -121,7 +121,7 @@ export const serviceDetails = {
       "All engineers are Gas Safe registered and certified",
       "Worcester Bosch & Vaillant accredited installers",
       "Installations from just £1,995 with free Hive thermostat",
-      "10-year warranty on new boiler installations",
+      "Up to 12-year warranty on new boiler installations",
       "Transparent pricing with no hidden costs",
       "100+ 5-star reviews on Google and Facebook",
       "Covering Milton Keynes and up to 50 miles",
@@ -294,7 +294,7 @@ export const trustSignals = [
   "Gas Safe Registered",
   "24/7 Emergency Service",
   "12-Month Guarantee",
-  "10-Year Boiler Warranty",
+  "Up to 12-Year Boiler Warranty",
   "Transparent Pricing",
 ];
 
@@ -334,7 +334,7 @@ export const testimonials = [
     name: "Verified Customer",
     location: "Bedford",
     rating: 5,
-    text: "Had a new Worcester Bosch boiler installed with a free Hive thermostat. The whole process was smooth and stress-free. 10-year warranty gives great peace of mind.",
+    text: "Had a new Worcester Bosch boiler installed with a free Hive thermostat. The whole process was smooth and stress-free. 12-year warranty gives great peace of mind.",
     source: "facebook" as const,
     initials: "BD",
   },
@@ -375,11 +375,11 @@ export const faqs = [
       },
       {
         q: "What brands of boiler do you install?",
-        a: "We are Worcester Bosch and Vaillant accredited installers. We'll recommend the best option for your home and budget, ensuring you get a reliable, energy-efficient system.",
+        a: "As accredited installers for Worcester Bosch and Vaillant, we can offer extended warranties of up to 12 years on selected models, giving you complete peace of mind and long-term protection. We also supply and install a wide range of other leading boiler brands, ensuring you receive the best solution for your home — whether you're replacing an old system or installing a brand-new one.",
       },
       {
         q: "What warranty do you offer on new boilers?",
-        a: "We offer a 10-year manufacturer's warranty on new boiler installations, plus a 12-month guarantee on all pipework and labour carried out by Plumbline MK.",
+        a: "As accredited installers for Worcester Bosch and Vaillant, we can offer extended warranties of up to 12 years on selected models, giving you complete peace of mind and long-term protection. We also provide a 12-month guarantee on all pipework and labour carried out by Plumbline MK.",
       },
     ],
   },

@@ -31,9 +31,9 @@ const features = [
   {
     icon: Award,
     title: "Guaranteed Work",
-    description: "12-month guarantee on all repairs. 10-year warranty on new boiler installations.",
+    description: "12-month guarantee on all repairs. Up to 12-year warranty on new boiler installations.",
     color: "bg-success",
-    stat: "10yr",
+    stat: "12yr",
     statLabel: "Warranty",
   },
 ];

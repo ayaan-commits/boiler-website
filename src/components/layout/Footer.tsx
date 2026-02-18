@@ -143,7 +143,7 @@ export function Footer() {
               </li>
             </ul>
             <div className="mt-4">
-              <span className="inline-block bg-success text-white text-xs font-semibold px-3 py-1.5 rounded">
+              <span className="inline-block bg-[#FFD700] text-black text-xs font-semibold px-3 py-1.5 rounded">
                 Gas Safe Registered
               </span>
             </div>

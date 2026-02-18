@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 70" fill="none">
+  <rect width="180" height="70" rx="6" fill="#FFFFFF"/>
+  <text x="90" y="38" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#00843D">VAILLANT</text>
+  <circle cx="90" cy="12" r="5" fill="#00843D"/>
+  <line x1="35" y1="48" x2="145" y2="48" stroke="#00843D" stroke-width="1.5"/>
+  <text x="90" y="60" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="600" fill="#666666" letter-spacing="1">APPROVED INSTALLER</text>
+</svg>

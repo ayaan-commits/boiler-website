@@ -1,11 +1,41 @@
-import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
 
 const partners = [
-  { name: "Worcester Bosch", subtitle: "Accredited Installer" },
-  { name: "Vaillant", subtitle: "Approved Installer" },
-  { name: "Gas Safe", subtitle: "Registered" },
-  { name: "Baxi", subtitle: "Approved" },
-  { name: "Ideal", subtitle: "Stockist" },
+  {
+    name: "Worcester Bosch",
+    subtitle: "Accredited Installer",
+    logo: "/images/accreditations/worcester-bosch.svg",
+    width: 120,
+    height: 40,
+  },
+  {
+    name: "Vaillant",
+    subtitle: "Approved Installer",
+    logo: "/images/accreditations/vaillant.svg",
+    width: 110,
+    height: 40,
+  },
+  {
+    name: "Gas Safe",
+    subtitle: "Registered",
+    logo: "/images/accreditations/gas-safe.svg",
+    width: 50,
+    height: 50,
+  },
+  {
+    name: "Baxi",
+    subtitle: "Approved",
+    logo: "/images/accreditations/baxi.svg",
+    width: 90,
+    height: 36,
+  },
+  {
+    name: "Ideal",
+    subtitle: "Stockist",
+    logo: "/images/accreditations/ideal.svg",
+    width: 90,
+    height: 36,
+  },
 ];
 
 export function TrustLogos() {
@@ -19,19 +49,15 @@ export function TrustLogos() {
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="flex items-center gap-2.5 px-5 py-3 rounded-lg bg-cream/60 border border-warm-grey/40 hover:border-accent/30 hover:shadow-md transition-all duration-300 group"
+              className="flex items-center justify-center px-5 py-3 rounded-lg bg-cream/60 border border-warm-grey/40 hover:border-accent/30 hover:shadow-md transition-all duration-300 group"
             >
-              <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-accent/10 transition-colors">
-                <ShieldCheck className="w-5 h-5 text-primary group-hover:text-accent transition-colors" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="font-heading font-bold text-primary text-sm leading-tight">
-                  {partner.name}
-                </p>
-                <p className="text-[11px] text-text-muted leading-tight">
-                  {partner.subtitle}
-                </p>
-              </div>
+              <Image
+                src={partner.logo}
+                alt={`${partner.name} - ${partner.subtitle}`}
+                width={partner.width}
+                height={partner.height}
+                className="h-10 md:h-12 w-auto object-contain"
+              />
             </div>
           ))}
         </div>
