@@ -125,10 +125,7 @@ export default function ServicesPage() {
                           {service.description}
                         </p>
 
-                        <div className="flex items-center justify-between">
-                          <span className="text-lg font-bold text-accent">
-                            {service.price}
-                          </span>
+                        <div className="flex items-center justify-end">
                           <span className="inline-flex items-center gap-2 text-teal font-medium group-hover:gap-3 transition-all">
                             Learn More
                             <ArrowRight className="w-5 h-5" aria-hidden="true" />
@@ -182,10 +179,7 @@ export default function ServicesPage() {
                       {service.description}
                     </p>
 
-                    <div className="flex items-center justify-between">
-                      <span className="text-base font-bold text-teal">
-                        {service.price}
-                      </span>
+                    <div className="flex items-center justify-end">
                       <ArrowRight className="w-5 h-5 text-teal group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                     </div>
                   </Link>

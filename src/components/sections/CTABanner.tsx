@@ -21,7 +21,7 @@ export function CTABanner() {
           </p>
 
           <p className="text-sm text-white/70 mb-8">
-            Installations from just <span className="text-white font-semibold">£1,995</span> with free Hive smart thermostat included
+            Free Hive smart thermostat included with every installation
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

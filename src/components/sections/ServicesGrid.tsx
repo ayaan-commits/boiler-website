@@ -10,9 +10,8 @@ import {
   Thermometer,
   Droplets,
   ArrowRight,
-  Phone,
 } from "lucide-react";
-import { services, siteConfig } from "@/data/siteConfig";
+import { services } from "@/data/siteConfig";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const iconMap = {
@@ -45,7 +44,6 @@ export function ServicesGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
-            const isCallForQuote = service.price === "Call for quote";
 
             return (
               <ScrollReveal key={service.slug} delay={index * 0.08} className="h-full">
@@ -65,24 +63,9 @@ export function ServicesGrid() {
                   </h3>
 
                   {/* Short Description */}
-                  <p className="text-text-secondary text-sm mb-4 min-h-[40px] flex-grow">
+                  <p className="text-text-secondary text-sm mb-4 flex-grow">
                     {service.shortDesc}
                   </p>
-
-                  {/* Price / Call Button */}
-                  {isCallForQuote ? (
-                    <a
-                      href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                      className="inline-flex items-center gap-2 bg-accent/10 text-accent font-semibold px-4 py-2 rounded-lg hover:bg-accent hover:text-white transition-all duration-200 mb-4 w-fit"
-                    >
-                      <Phone className="w-4 h-4" aria-hidden="true" />
-                      Call for Quote
-                    </a>
-                  ) : (
-                    <p className="text-accent font-bold text-lg mb-4">
-                      {service.price}
-                    </p>
-                  )}
 
                   {/* Learn More Link */}
                   <Link

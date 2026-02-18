@@ -43,69 +43,6 @@ const serviceImages: Record<string, string> = {
   "powerflushing": "/images/services/powerflush.jpg",
 };
 
-const boilerCoverPlans = [
-  {
-    name: "Silver",
-    price: "16",
-    description: "Essential annual servicing cover",
-    features: [
-      "Annual boiler service",
-      "24/7 emergency helpline",
-      "Priority booking",
-      "Gas safety check included",
-    ],
-    notIncluded: [
-      "Parts & labour for repairs",
-      "Central heating system cover",
-    ],
-    color: "bg-warm-grey",
-    accent: "text-text-secondary",
-    borderColor: "border-warm-grey",
-  },
-  {
-    name: "Gold",
-    price: "20",
-    description: "Boiler servicing + repairs covered",
-    popular: true,
-    features: [
-      "Annual boiler service",
-      "24/7 emergency helpline",
-      "Priority booking",
-      "Gas safety check included",
-      "Boiler repairs - parts & labour",
-      "No call-out charges",
-      "No excess fees",
-    ],
-    notIncluded: [
-      "Central heating system cover",
-    ],
-    color: "bg-accent",
-    accent: "text-accent",
-    borderColor: "border-accent",
-  },
-  {
-    name: "Platinum",
-    price: "26",
-    description: "Complete boiler & heating system cover",
-    features: [
-      "Annual boiler service",
-      "24/7 emergency helpline",
-      "Priority booking",
-      "Gas safety check included",
-      "Boiler repairs - parts & labour",
-      "No call-out charges",
-      "No excess fees",
-      "Full central heating system cover",
-      "Radiator & pipework repairs",
-      "Controls & thermostat cover",
-    ],
-    notIncluded: [],
-    color: "bg-primary",
-    accent: "text-primary",
-    borderColor: "border-primary",
-  },
-];
-
 interface ServicePageProps {
   params: Promise<{
     slug: string;
@@ -184,8 +121,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
     url: `https://www.plumblinemk.co.uk/services/${slug}`,
     offers: {
       "@type": "Offer",
-      price: service.price.includes("From") ? service.price.replace("From £", "") : undefined,
-      priceCurrency: "GBP",
       description: service.shortDesc,
     },
   };
@@ -239,16 +174,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <p className="text-xl text-white/90 leading-relaxed mb-6">
                 {service.description}
               </p>
-
-              {/* Price Badge */}
-              <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 mb-8">
-                <span className="text-white/70 text-sm font-medium">
-                  Starting from:
-                </span>
-                <span className="text-2xl font-bold text-accent">
-                  {service.price}
-                </span>
-              </div>
 
               {/* Trust Badges */}
               <div className="flex flex-wrap gap-3">
@@ -322,89 +247,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* Pricing Tiers - Only for Boiler Cover */}
-      {slug === "boiler-cover" && (
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <ScrollReveal>
-              <div className="text-center max-w-3xl mx-auto mb-12">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary mb-4">
-                  Choose Your Plan
-                </h2>
-                <p className="text-lg text-text-secondary">
-                  Affordable monthly cover plans to keep your boiler running smoothly all year round
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-              {boilerCoverPlans.map((plan, index) => (
-                <ScrollReveal key={plan.name} delay={index * 0.1}>
-                  <div className={`relative bg-white rounded-2xl border-2 ${plan.borderColor} p-6 lg:p-8 h-full flex flex-col ${plan.popular ? "shadow-xl ring-2 ring-accent/20" : "shadow-md"}`}>
-                    {plan.popular && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full">
-                        Most Popular
-                      </div>
-                    )}
-
-                    {/* Plan Header */}
-                    <div className="text-center mb-6">
-                      <h3 className={`font-heading text-2xl font-extrabold ${plan.accent} mb-1`}>
-                        {plan.name}
-                      </h3>
-                      <p className="text-sm text-text-muted mb-4">{plan.description}</p>
-                      <div className="flex items-baseline justify-center gap-1">
-                        <span className="text-4xl lg:text-5xl font-extrabold text-primary">
-                          &pound;{plan.price}
-                        </span>
-                        <span className="text-text-muted text-sm">/month</span>
-                      </div>
-                    </div>
-
-                    {/* Features */}
-                    <div className="flex-grow">
-                      <ul className="space-y-3 mb-6">
-                        {plan.features.map((feature) => (
-                          <li key={feature} className="flex items-start gap-2.5">
-                            <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                            <span className="text-sm text-text-primary">{feature}</span>
-                          </li>
-                        ))}
-                        {plan.notIncluded.map((feature) => (
-                          <li key={feature} className="flex items-start gap-2.5 opacity-50">
-                            <span className="w-5 h-5 flex items-center justify-center flex-shrink-0 mt-0.5 text-text-muted text-xs">&mdash;</span>
-                            <span className="text-sm text-text-muted line-through">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* CTA */}
-                    <a
-                      href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                      className={`flex items-center justify-center gap-2 w-full py-3.5 rounded-lg font-semibold transition-colors ${
-                        plan.popular
-                          ? "bg-accent hover:bg-accent-dark text-white"
-                          : "bg-primary hover:bg-primary-dark text-white"
-                      }`}
-                    >
-                      <Phone className="w-4 h-4" />
-                      Get {plan.name} Plan
-                    </a>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            <p className="text-center text-text-muted text-sm mt-8">
-              All plans include Gas Safe registered engineers. Cancel anytime with 30 days notice.
-            </p>
-          </div>
-        </section>
-      )}
-
       {/* Main Content */}
-      <section className={`py-16 md:py-20 ${slug === "boiler-cover" ? "bg-light-grey" : "bg-white"}`}>
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-10">
             {/* Main Content Area */}
@@ -510,9 +354,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
                             <h4 className="font-semibold text-primary text-sm group-hover:text-accent transition-colors truncate">
                               {otherService.title}
                             </h4>
-                            <p className="text-xs text-text-muted">
-                              {otherService.price}
-                            </p>
                           </div>
                           <ArrowRight className="w-4 h-4 text-teal flex-shrink-0 group-hover:translate-x-1 transition-transform" />
                         </Link>

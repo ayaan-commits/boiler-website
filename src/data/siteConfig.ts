@@ -33,9 +33,8 @@ export const services = [
     title: "Boiler Installation",
     slug: "boiler-installation",
     description: "Professional combi boiler installation Milton Keynes homeowners can trust. Worcester Bosch & Vaillant accredited with up to 12-year warranty on new installations.",
-    shortDesc: "New boiler from £1,995 inc. free Hive thermostat",
+    shortDesc: "Worcester Bosch & Vaillant accredited installers",
     icon: "Flame",
-    price: "From £1,995",
     category: "boilers",
   },
   {
@@ -44,7 +43,6 @@ export const services = [
     description: "Fast, reliable boiler repairs across Milton Keynes with same-day emergency service. We diagnose and fix all makes and models with a 12-month guarantee.",
     shortDesc: "Same-day emergency repairs available",
     icon: "Wrench",
-    price: "Call for quote",
     category: "boilers",
   },
   {
@@ -53,7 +51,6 @@ export const services = [
     description: "Routine gas boiler servicing Milton Keynes customers trust. Annual servicing keeps your heating running safely and efficiently, maintaining your warranty.",
     shortDesc: "Annual service & safety check",
     icon: "ClipboardCheck",
-    price: "Call for quote",
     category: "boilers",
   },
   {
@@ -62,7 +59,6 @@ export const services = [
     description: "Landlord gas safety certificates (CP12) in Milton Keynes. Fast appointments, digital certificates, and annual renewal reminders for your rental properties.",
     shortDesc: "CP12 certificates for landlords",
     icon: "ShieldCheck",
-    price: "Call for quote",
     category: "boilers",
   },
   {
@@ -71,7 +67,6 @@ export const services = [
     description: "24/7 emergency plumbing service across Milton Keynes. Burst pipes, leaks, boiler breakdowns - we're here when you need us most with fast response times.",
     shortDesc: "24/7 emergency response across MK",
     icon: "Siren",
-    price: "Call for quote",
     category: "other",
   },
   {
@@ -80,16 +75,14 @@ export const services = [
     description: "Professional underfloor heating installation in Milton Keynes for new builds and retrofits. Wet and electric systems available with expert installation.",
     shortDesc: "Wet & electric systems installed",
     icon: "Thermometer",
-    price: "Call for quote",
     category: "other",
   },
   {
     title: "Boiler Cover Plans",
     slug: "boiler-cover",
     description: "Affordable monthly boiler cover plans for complete peace of mind. Choose from three tiers covering annual servicing, repairs, and full system protection.",
-    shortDesc: "Monthly cover from £16/month",
+    shortDesc: "Comprehensive cover for peace of mind",
     icon: "ShieldCheck",
-    price: "From £16/mo",
     category: "boilers",
   },
   {
@@ -98,7 +91,6 @@ export const services = [
     description: "Professional powerflushing service in Milton Keynes to restore your central heating efficiency. We remove sludge, rust, and debris from your system for better performance and lower energy bills.",
     shortDesc: "Restore heating efficiency & reduce bills",
     icon: "Droplets",
-    price: "Call for quote",
     category: "other",
   },
 ];
@@ -120,7 +112,7 @@ export const serviceDetails = {
       "Over 10 years of boiler installation experience",
       "All engineers are Gas Safe registered and certified",
       "Worcester Bosch & Vaillant accredited installers",
-      "Installations from just £1,995 with free Hive thermostat",
+      "Free Hive smart thermostat with every installation",
       "Up to 12-year warranty on new boiler installations",
       "Transparent pricing with no hidden costs",
       "100+ 5-star reviews on Google and Facebook",
@@ -232,7 +224,7 @@ export const serviceDetails = {
       "Cancel anytime with 30 days notice",
     ],
     whyChooseUs: [
-      "Affordable plans starting from just £16/month",
+      "Affordable monthly plans to suit every budget",
       "Covers annual servicing so your warranty stays valid",
       "No hidden costs - everything included in your plan",
       "Priority booking for covered customers",
@@ -371,7 +363,7 @@ export const faqs = [
     questions: [
       {
         q: "How much does a boiler installation cost?",
-        a: "Our boiler installations start at £1,995 including a Worcester combi boiler and a free Hive thermostat. We offer transparent, upfront pricing with no hidden costs.",
+        a: "Every installation is different, so we provide a free, no-obligation quote tailored to your home. Contact us and we'll give you an upfront price with no hidden costs.",
       },
       {
         q: "What brands of boiler do you install?",
