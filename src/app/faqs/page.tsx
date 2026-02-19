@@ -34,9 +34,23 @@ export default function FAQsPage() {
     ),
   };
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Get Your Boiler Serviced or Replaced",
+    description: "Step-by-step guide to booking a boiler service, repair, or installation with Plumbline MK in Milton Keynes.",
+    step: [
+      { "@type": "HowToStep", position: 1, name: "Contact Us", text: "Call us on 07805 844 016, send an email, or fill in our online contact form to describe your boiler or heating issue." },
+      { "@type": "HowToStep", position: 2, name: "Get a Free Quote", text: "We'll provide a free, no-obligation quote tailored to your needs with transparent upfront pricing." },
+      { "@type": "HowToStep", position: 3, name: "Book an Appointment", text: "Choose a convenient time for our Gas Safe registered engineer to visit your property." },
+      { "@type": "HowToStep", position: 4, name: "Service Completed", text: "Our engineer completes the work to the highest standard with a 12-month guarantee on all repairs." },
+    ],
+  };
+
   return (
     <>
       <JsonLd data={faqPageSchema} />
+      <JsonLd data={howToSchema} />
       {/* Hero Banner */}
       <section className="bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-teal/30" />

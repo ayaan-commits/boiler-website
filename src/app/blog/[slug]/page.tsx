@@ -107,9 +107,32 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       : 0,
   };
 
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: post.author,
+    url: "https://www.plumblinemk.co.uk/about",
+    worksFor: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: "https://www.plumblinemk.co.uk",
+    },
+  };
+
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.plumblinemk.co.uk/#organization",
+    name: siteConfig.name,
+    url: "https://www.plumblinemk.co.uk",
+    logo: "https://www.plumblinemk.co.uk/logo.png",
+  };
+
   return (
     <>
       <JsonLd data={articleSchema} />
+      <JsonLd data={personSchema} />
+      <JsonLd data={orgSchema} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -184,6 +207,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <span>{post.readTime}</span>
                 </div>
               </div>
+
+              {/* TL;DR Summary */}
+              {post.tldr && (
+                <div className="bg-primary/5 border-l-4 border-accent rounded-r-xl p-5 mb-8">
+                  <p className="text-sm font-bold text-primary uppercase tracking-wide mb-2">TL;DR</p>
+                  <p className="text-text-secondary leading-relaxed">{post.tldr}</p>
+                </div>
+              )}
 
               {/* Featured Image */}
               <div className="relative w-full h-64 md:h-80 overflow-hidden rounded-xl mb-8">

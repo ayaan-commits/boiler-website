@@ -65,6 +65,19 @@ export default function ReviewsPage() {
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Boiler & Heating Services",
+        description: "Professional boiler installation, repair and servicing by Gas Safe registered engineers in Milton Keynes. 100+ 5-star reviews.",
+        provider: {
+          "@type": "LocalBusiness",
+          name: "Plumbline MK",
+          telephone: "07805 844 016",
+        },
+        areaServed: { "@type": "City", name: "Milton Keynes" },
+        url: "https://www.plumblinemk.co.uk/reviews",
+      }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
         "@type": "LocalBusiness",
         name: "Plumbline MK",
         aggregateRating: {
@@ -151,6 +164,26 @@ export default function ReviewsPage() {
               </div>
               <p className="text-4xl font-bold text-primary mb-1">5.0★</p>
               <p className="text-text-secondary">Google Rating</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Guarantees */}
+      <section className="py-8 bg-light-grey border-b border-warm-grey">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div>
+              <p className="text-lg font-bold text-primary mb-1">12-Month Guarantee</p>
+              <p className="text-sm text-text-secondary">Every repair we carry out is covered for 12 months - if the same issue returns, we fix it at no extra cost.</p>
+            </div>
+            <div>
+              <p className="text-lg font-bold text-primary mb-1">Up to 12-Year Warranty</p>
+              <p className="text-sm text-text-secondary">As accredited installers for Worcester Bosch & Vaillant, we offer extended manufacturer warranties protecting your investment.</p>
+            </div>
+            <div>
+              <p className="text-lg font-bold text-primary mb-1">Transparent Pricing</p>
+              <p className="text-sm text-text-secondary">No hidden fees or surprise charges. We provide clear, upfront quotes before any work begins.</p>
             </div>
           </div>
         </div>

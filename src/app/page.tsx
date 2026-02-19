@@ -113,9 +113,21 @@ export default function Home() {
     ],
   };
 
+  const webSiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.plumblinemk.co.uk/#website",
+    name: siteConfig.name,
+    url: "https://www.plumblinemk.co.uk",
+    publisher: {
+      "@id": "https://www.plumblinemk.co.uk/#organization",
+    },
+  };
+
   return (
     <>
       <JsonLd data={localBusinessSchema} />
+      <JsonLd data={webSiteSchema} />
       <Hero />
       <TrustLogos />
       <ServicesGrid />

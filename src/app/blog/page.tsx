@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, Calendar, ArrowRight } from "lucide-react";
+import { Clock, Calendar, ArrowRight, User } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -42,6 +42,19 @@ export default function BlogPage() {
       <JsonLd data={collectionSchema} />
       <JsonLd data={{
         "@context": "https://schema.org",
+        "@type": "Article",
+        headline: "Boiler Advice & Guides | Expert Tips from Gas Safe Engineers",
+        description: "Expert boiler advice and heating guides from Gas Safe registered engineers. Installation tips, energy efficiency, maintenance advice and more.",
+        author: { "@type": "Organization", name: "Plumbline MK", url: "https://www.plumblinemk.co.uk" },
+        publisher: {
+          "@type": "Organization",
+          name: "Plumbline MK",
+          logo: { "@type": "ImageObject", url: "https://www.plumblinemk.co.uk/logo.png" },
+        },
+        mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.plumblinemk.co.uk/blog" },
+      }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plumblinemk.co.uk" },
@@ -58,9 +71,11 @@ export default function BlogPage() {
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
                 Blog & Guides
               </h1>
-              <p className="text-white/75 text-lg lg:text-xl max-w-2xl mx-auto">
-                Expert advice, helpful tips, and the latest news on boilers,
-                heating systems, and home energy efficiency.
+              <p className="text-white/80 text-lg lg:text-xl max-w-2xl mx-auto mb-4">
+                Many homeowners struggle with choosing the right boiler, understanding maintenance needs, or reducing their energy bills. Our blog provides expert advice and step-by-step guides to help you make informed decisions.
+              </p>
+              <p className="text-white/70 text-base max-w-2xl mx-auto">
+                Written by our Gas Safe registered engineers with 10+ years of experience in Milton Keynes.
               </p>
             </div>
           </ScrollReveal>
@@ -107,7 +122,11 @@ export default function BlogPage() {
                     </p>
 
                     {/* Meta Info */}
-                    <div className="flex items-center gap-4 text-sm text-text-muted mb-4">
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-text-muted mb-4">
+                      <div className="flex items-center gap-1">
+                        <User className="w-4 h-4" aria-hidden="true" />
+                        <span>{post.author}</span>
+                      </div>
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" aria-hidden="true" />
                         <span>{post.date}</span>

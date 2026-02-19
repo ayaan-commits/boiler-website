@@ -29,6 +29,27 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Plumbing & Heating Services",
+    description: "Professional boiler installation, repair, servicing and emergency plumbing by Gas Safe registered engineers in Milton Keynes.",
+    provider: {
+      "@type": "LocalBusiness",
+      name: siteConfig.name,
+      telephone: siteConfig.phone,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: siteConfig.address.city,
+        addressRegion: siteConfig.address.county,
+        postalCode: siteConfig.address.postcode,
+        addressCountry: "GB",
+      },
+    },
+    areaServed: { "@type": "City", name: "Milton Keynes" },
+    url: "https://www.plumblinemk.co.uk/contact",
+  };
+
   return (
     <>
       <JsonLd data={{
@@ -37,6 +58,16 @@ export default function ContactPage() {
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plumblinemk.co.uk" },
           { "@type": "ListItem", position: 2, name: "Contact Us" },
+        ],
+      }} />
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          { "@type": "Question", name: "How do I get a free boiler quote?", acceptedAnswer: { "@type": "Answer", text: "Call us on 07805 844 016, send an email to enquiries@plumblinemk.co.uk, or fill in our online contact form. We provide free, no-obligation quotes for all services." } },
+          { "@type": "Question", name: "Do you offer 24/7 emergency service?", acceptedAnswer: { "@type": "Answer", text: "Yes, we offer 24/7 emergency callouts for boiler breakdowns, no heating, no hot water, and other urgent plumbing issues across Milton Keynes." } },
+          { "@type": "Question", name: "What areas do you cover?", acceptedAnswer: { "@type": "Answer", text: "We cover Milton Keynes and surrounding areas up to 50 miles, including Newport Pagnell, Bedford, Buckingham, Aylesbury, and Northampton." } },
         ],
       }} />
       {/* Hero Banner */}
@@ -48,9 +79,11 @@ export default function ContactPage() {
               <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">
                 Contact Us
               </h1>
-              <p className="text-white/80 text-lg max-w-2xl mx-auto">
-                Get in touch for a free, no-obligation quote. Our Gas Safe
-                registered engineers are here to help.
+              <p className="text-white/80 text-lg max-w-2xl mx-auto mb-4">
+                Struggling with a broken boiler during winter? Worried about hidden costs in boiler installation? We understand how stressful heating problems can be.
+              </p>
+              <p className="text-white/90 text-base max-w-2xl mx-auto font-medium">
+                Plumbline MK offers free boiler quotes and 24/7 emergency services for homeowners in Milton Keynes. Transparent pricing, Gas Safe registered engineers, and a 12-month guarantee on all repairs.
               </p>
             </div>
           </ScrollReveal>
@@ -176,6 +209,22 @@ export default function ContactPage() {
                   </div>
                 </div>
 
+                {/* Social Proof */}
+                <div className="bg-white rounded-xl shadow-lg p-6">
+                  <div className="flex gap-1 mb-3">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <svg key={i} className="w-5 h-5 fill-amber-400 text-amber-400" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <blockquote className="text-text-secondary text-sm italic mb-3 leading-relaxed">
+                    &ldquo;Robert and Sam was amazing and friendly. They provided a quality service and I would highly recommend them to anyone looking for reliable plumbing and heating work.&rdquo;
+                  </blockquote>
+                  <p className="text-sm font-semibold text-primary">Callista Anowo</p>
+                  <p className="text-xs text-text-muted">Milton Keynes - Google Review</p>
+                </div>
+
                 {/* Emergency Callout Box */}
                 <div className="bg-gradient-to-br from-alert to-alert-dark rounded-xl shadow-lg p-6 text-white">
                   <div className="flex items-center gap-3 mb-3">
@@ -203,36 +252,29 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Trust Bar */}
-      <section className="py-8 bg-white border-t border-warm-grey">
+      {/* Features & Benefits */}
+      <section className="py-10 bg-white border-t border-warm-grey">
         <div className="max-w-7xl mx-auto px-4">
           <ScrollReveal>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-              {trustSignals.map((signal, index) => {
-                // Map icons to trust signals
-                const icons = [
-                  ShieldCheck,
-                  Clock,
-                  Award,
-                  BadgePoundSterling,
-                  CheckCircle,
-                ];
-                const Icon = icons[index % icons.length];
-
-                return (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center text-center gap-2 w-[calc(50%-0.5rem)] xs:w-[calc(33.333%-0.75rem)] md:w-auto md:flex-1"
-                  >
-                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-teal/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 md:w-6 md:h-6 text-teal" aria-hidden="true" />
-                    </div>
-                    <p className="text-xs xs:text-sm font-semibold text-text-primary">
-                      {signal}
-                    </p>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary text-center mb-8">
+              Why Choose Plumbline MK?
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              {[
+                { icon: ShieldCheck, title: "Gas Safe Registered", desc: "All engineers are fully Gas Safe certified (#957816), ensuring every job meets the highest safety standards." },
+                { icon: Clock, title: "24/7 Emergency Service", desc: "Boiler broken at midnight? We respond around the clock so you're never left without heating or hot water." },
+                { icon: Award, title: "12-Month Guarantee", desc: "Every repair we carry out is covered for 12 months, giving you peace of mind that the job is done right." },
+                { icon: BadgePoundSterling, title: "Up to 12-Year Warranty", desc: "As Worcester Bosch & Vaillant accredited installers, we offer extended manufacturer warranties on new boilers." },
+                { icon: CheckCircle, title: "Transparent Pricing", desc: "No hidden fees or surprises. We provide clear, upfront quotes before any work begins so you know exactly what to expect." },
+              ].map((feature, index) => (
+                <div key={index} className="flex flex-col items-center text-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-teal/10 flex items-center justify-center">
+                    <feature.icon className="w-6 h-6 text-teal" aria-hidden="true" />
                   </div>
-                );
-              })}
+                  <h3 className="text-sm font-bold text-text-primary">{feature.title}</h3>
+                  <p className="text-xs text-text-secondary leading-relaxed">{feature.desc}</p>
+                </div>
+              ))}
             </div>
           </ScrollReveal>
         </div>

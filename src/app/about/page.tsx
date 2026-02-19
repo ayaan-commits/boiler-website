@@ -101,6 +101,28 @@ const accreditations = [
 ];
 
 export default function AboutPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Plumbing & Heating Services",
+    description: "Family-run boiler business with 10+ years experience in Milton Keynes. Gas Safe registered, Worcester Bosch & Vaillant accredited installers.",
+    provider: {
+      "@type": "LocalBusiness",
+      name: siteConfig.name,
+      telephone: siteConfig.phone,
+      founder: { "@type": "Person", name: "Robert", jobTitle: "Founder & Gas Safe Engineer" },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: siteConfig.address.city,
+        addressRegion: siteConfig.address.county,
+        postalCode: siteConfig.address.postcode,
+        addressCountry: "GB",
+      },
+    },
+    areaServed: { "@type": "City", name: "Milton Keynes" },
+    url: "https://www.plumblinemk.co.uk/about",
+  };
+
   return (
     <div>
       <JsonLd data={{
@@ -111,6 +133,7 @@ export default function AboutPage() {
           { "@type": "ListItem", position: 2, name: "About Us" },
         ],
       }} />
+      <JsonLd data={serviceSchema} />
       {/* Hero Banner */}
       <section className="bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-teal/30" />
@@ -282,6 +305,27 @@ export default function AboutPage() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Our Guarantees */}
+      <section className="py-12 bg-white border-t border-warm-grey">
+        <div className="max-w-5xl mx-auto px-4">
+          <ScrollReveal>
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-8">
+              What Our Guarantees Mean for You
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-light-grey rounded-lg p-6">
+                <h3 className="font-heading font-bold text-primary mb-2">12-Month Guarantee on Repairs</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">Every repair we carry out is covered for a full 12 months. If the same issue returns within that period, we come back and fix it at no extra cost to you.</p>
+              </div>
+              <div className="bg-light-grey rounded-lg p-6">
+                <h3 className="font-heading font-bold text-primary mb-2">Up to 12-Year Boiler Warranty</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">As accredited installers for Worcester Bosch and Vaillant, we can register extended manufacturer warranties of up to 12 years on new installations, protecting your investment for over a decade.</p>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

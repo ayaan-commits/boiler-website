@@ -133,8 +133,11 @@ export default function GalleryPage() {
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
                 Our Work
               </h1>
-              <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto">
-                Browse our portfolio of boiler installations, repairs, and heating projects
+              <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto mb-4">
+                Dealing with an unreliable boiler, cold spots in your home, or high energy bills? See how we&apos;ve solved these exact problems for homeowners across Milton Keynes.
+              </p>
+              <p className="text-white/90 text-base max-w-3xl mx-auto font-medium">
+                Plumbline MK delivers professional boiler installations and heating repairs with quality workmanship and customer satisfaction guaranteed. Browse our portfolio of completed projects below.
               </p>
             </div>
           </ScrollReveal>
@@ -238,6 +241,54 @@ export default function GalleryPage() {
               <p className="text-text-muted text-lg">No projects found in this category.</p>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Social Proof */}
+      <section className="py-8 bg-cream">
+        <div className="max-w-5xl mx-auto px-4">
+          <ScrollReveal>
+            <div className="text-center">
+              <p className="text-text-secondary text-sm mb-3">Trusted by homeowners across Milton Keynes</p>
+              <div className="flex items-center justify-center gap-2 mb-2">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg key={i} className="w-5 h-5 fill-amber-400 text-amber-400" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-primary font-bold text-lg">5.0/5 from 100+ Reviews</p>
+              <blockquote className="text-text-secondary text-sm italic mt-3 max-w-xl mx-auto">
+                &ldquo;I couldn&apos;t be more impressed with the service from Plumbline MK. Professional, polite, and did an excellent job all around!&rdquo;
+                <span className="block text-primary font-semibold not-italic mt-1">- Kyle Mawby, Milton Keynes</span>
+              </blockquote>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Features & Benefits */}
+      <section className="py-10 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <ScrollReveal>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary text-center mb-8">
+              What Sets Our Work Apart
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div>
+                <p className="text-lg font-bold text-primary mb-1">Gas Safe Certified</p>
+                <p className="text-sm text-text-secondary">Every installation is carried out by Gas Safe registered engineers following strict safety protocols.</p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-primary mb-1">Energy Efficient</p>
+                <p className="text-sm text-text-secondary">We install A-rated boilers that can reduce your energy bills by up to 30-40% compared to older models.</p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-primary mb-1">Warranty Protected</p>
+                <p className="text-sm text-text-secondary">Up to 12-year manufacturer warranty on new installations, plus a 12-month guarantee on all repair work.</p>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

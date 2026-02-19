@@ -17,7 +17,7 @@ import {
   ArrowRight,
   ShieldCheck as ShieldIcon,
 } from "lucide-react";
-import { services, serviceDetails, siteConfig } from "@/data/siteConfig";
+import { services, serviceDetails, servicePainPoints, faqs, testimonials, siteConfig } from "@/data/siteConfig";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -68,7 +68,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${service.title} Milton Keynes | Professional & Gas Safe | Plumbline MK`,
+    title: `${service.title} Milton Keynes | Professional & Gas Safe`,
     description: service.description,
     keywords: [service.title.toLowerCase(), `${service.title.toLowerCase()} Milton Keynes`, "Gas Safe registered", "professional heating engineer"],
     alternates: {
@@ -125,9 +125,38 @@ export default async function ServicePage({ params }: ServicePageProps) {
     },
   };
 
+  // Map service slugs to FAQ categories for relevant FAQs
+  const serviceFaqMap: Record<string, string[]> = {
+    "boiler-installation": ["Boiler Installation", "General"],
+    "boiler-repair": ["Repairs & Servicing", "General"],
+    "boiler-servicing": ["Repairs & Servicing", "General"],
+    "gas-safety-certificate": ["Gas Safety", "General"],
+    "emergency-plumbing": ["General", "Repairs & Servicing"],
+    "underfloor-heating": ["General", "Technical"],
+    "boiler-cover": ["Repairs & Servicing", "General"],
+    "powerflushing": ["Repairs & Servicing", "Technical"],
+  };
+
+  const relevantCategories = serviceFaqMap[slug] || ["General"];
+  const relevantFaqs = faqs
+    .filter((section) => relevantCategories.includes(section.category))
+    .flatMap((section) => section.questions)
+    .slice(0, 5);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: relevantFaqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <div className="min-h-screen">
       <JsonLd data={serviceSchema} />
+      <JsonLd data={faqSchema} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -171,6 +200,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 </h1>
               </div>
 
+              {servicePainPoints[slug] && (
+                <p className="text-lg text-white/80 leading-relaxed mb-4">
+                  {servicePainPoints[slug]}
+                </p>
+              )}
               <p className="text-xl text-white/90 leading-relaxed mb-6">
                 {service.description}
               </p>
@@ -297,6 +331,20 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   </div>
                 </div>
               )}
+
+              {/* Customer Review */}
+              <div className="mb-12 bg-cream rounded-xl p-6">
+                <div className="flex gap-1 mb-3">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" aria-hidden="true" />
+                  ))}
+                </div>
+                <blockquote className="text-text-secondary italic leading-relaxed mb-3">
+                  &ldquo;{testimonials[0].text}&rdquo;
+                </blockquote>
+                <p className="text-sm font-semibold text-primary">{testimonials[0].name}</p>
+                <p className="text-xs text-text-muted">{testimonials[0].location} - 5.0/5 from 100+ reviews</p>
+              </div>
 
               {/* CTA Banner */}
               <ScrollReveal>

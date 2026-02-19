@@ -95,14 +95,25 @@ export const services = [
   },
 ];
 
+export const servicePainPoints: Record<string, string> = {
+  "boiler-installation": "Are you tired of unreliable heating during winter? Concerned about the safety of your current boiler? A new, efficient boiler can transform your home comfort and slash your energy bills.",
+  "boiler-repair": "Is your boiler making strange noises, losing pressure, or showing error codes? Don't let a faulty boiler leave you without heating or hot water. Our expert engineers diagnose and fix issues fast.",
+  "boiler-servicing": "Worried about your boiler breaking down when you need it most? Annual servicing catches small problems before they become expensive emergencies, keeps your warranty valid, and ensures your family's safety.",
+  "gas-safety-certificate": "As a landlord, staying compliant with gas safety regulations is both a legal requirement and your duty to tenants. Non-compliance can result in fines up to £6,000 or prosecution.",
+  "emergency-plumbing": "Boiler broken down in the middle of the night? No heating or hot water? A burst pipe flooding your home? We understand how stressful plumbing emergencies are, which is why we're available 24/7.",
+  "underfloor-heating": "Tired of cold floors in winter? Struggling with high energy bills due to inefficient heating systems? Underfloor heating provides even warmth throughout your home while reducing energy costs.",
+  "boiler-cover": "Worried about unexpected repair bills? Tired of searching for a reliable engineer every time something goes wrong? Our boiler cover plans give you complete peace of mind with priority response.",
+  "powerflushing": "Are your radiators cold at the bottom? Is your boiler making banging noises? These are signs of sludge build-up that's reducing your heating efficiency and increasing your energy bills.",
+};
+
 export const serviceDetails = {
   "boiler-installation": {
     whatsIncluded: [
       "Full site survey and professional recommendation",
       "Removal and disposal of old boiler",
       "Installation of new boiler by Gas Safe registered engineers",
-      "Full system flush and cleaning",
-      "Free Hive smart thermostat included",
+      "Full system flush and cleaning - removes sludge and debris to ensure your new boiler operates at peak efficiency from day one",
+      "Free Hive smart thermostat included - control your heating remotely from your phone for maximum comfort and energy savings",
       "Building regulations certification",
       "Up to 12-year manufacturer's warranty on new boiler",
       "12-month workmanship guarantee on pipework",
@@ -122,7 +133,7 @@ export const serviceDetails = {
   "boiler-repair": {
     whatsIncluded: [
       "Same-day emergency callout available",
-      "Full diagnostic assessment",
+      "Full diagnostic assessment - we identify the root cause of the problem quickly, saving you time and money on unnecessary parts",
       "Repair of all makes and models",
       "Genuine manufacturer parts used where possible",
       "12-month guarantee on all repairs",
@@ -213,7 +224,7 @@ export const serviceDetails = {
   },
   "boiler-cover": {
     whatsIncluded: [
-      "Annual boiler service included in all plans",
+      "Annual boiler service included in all plans - keeps your warranty valid and catches issues early",
       "No call-out charges for covered repairs",
       "24/7 emergency helpline access",
       "Priority response for covered customers",
@@ -241,7 +252,7 @@ export const serviceDetails = {
       "Choice of wet or electric systems",
       "Professional installation by qualified engineers",
       "Insulation boards and levelling compound",
-      "Thermostat and smart controls",
+      "Thermostat and smart controls - adjust heating remotely for optimal comfort and energy savings",
       "System testing and commissioning",
       "Full operating instructions",
       "Manufacturer's warranty registration",

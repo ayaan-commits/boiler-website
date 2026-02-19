@@ -8,6 +8,7 @@ export interface BlogPost {
   author: string;
   image: string;
   content?: string;
+  tldr?: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -21,6 +22,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     author: "Plumbline MK Team",
     image: "/images/blog/blog-boiler-guide.jpg",
+    tldr: "This guide covers the three main boiler types (combi, system, conventional), how to size your boiler correctly based on your home, and why energy efficiency ratings matter for long-term savings. Always consult a Gas Safe registered engineer for a professional recommendation.",
     content: `
       <p>Selecting the right boiler for your home is one of the most important decisions you'll make as a homeowner. With various types, sizes, and brands available, it's essential to understand your options to ensure you get a system that provides reliable heating, hot water, and energy efficiency for years to come.</p>
 
@@ -46,6 +48,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     author: "Plumbline MK Team",
     image: "/images/blog/blog-boiler-signs.jpg",
+    tldr: "Replace your boiler if it's over 10-15 years old, your energy bills are rising, you're facing frequent breakdowns, it makes strange noises or leaks, or it can't heat your home consistently. A new A-rated boiler can cut bills by 30-40%.",
     content: `
       <p>Knowing when to replace your boiler rather than repair it can save you money and prevent the inconvenience of unexpected breakdowns. While regular servicing can extend your boiler's lifespan, there comes a point where replacement becomes the more practical and cost-effective option.</p>
 
@@ -77,6 +80,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     author: "Plumbline MK Team",
     image: "/images/blog/blog-gas-safety.jpg",
+    tldr: "Landlords must get an annual gas safety check (CP12) by a Gas Safe engineer. The certificate covers all gas appliances and must be given to tenants within 28 days. Non-compliance can result in fines up to £6,000 or prosecution. Typical cost: £60-£90.",
     content: `
       <p>If you're a landlord in the UK, obtaining and maintaining a valid Landlord Gas Safety Certificate (also known as a CP12) is one of your most important legal obligations. This certificate ensures that all gas appliances, fittings, and flues in your rental property are safe for tenant use.</p>
 
@@ -108,6 +112,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     author: "Plumbline MK Team",
     image: "/images/blog/blog-energy-saving.jpg",
+    tldr: "This guide covers optimising thermostat settings (save 10% per 1°C reduction), improving insulation (save £150-£180/year), maintaining your boiler, using TRVs wisely, and upgrading to an A-rated boiler (save up to £350/year). Start with free changes before investing in upgrades.",
     content: `
       <p>With energy prices continuing to rise, many households are looking for effective ways to reduce their heating bills without sacrificing comfort. The good news is that with some simple changes and smart habits, you can significantly lower your energy consumption and save money throughout the year.</p>
 
@@ -139,6 +144,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     author: "Plumbline MK Team",
     image: "/images/blog/blog-boiler-servicing.jpg",
+    tldr: "Annual boiler servicing prevents carbon monoxide leaks, maintains your manufacturer warranty, improves efficiency by 5-10%, and catches small problems before they become costly repairs. A service costs £75-£100 and takes 30-60 minutes.",
     content: `
       <p>Many homeowners question whether annual boiler servicing is really necessary, especially when their boiler seems to be working fine. However, regular professional maintenance is one of the most important things you can do to ensure your heating system remains safe, efficient, and reliable.</p>
 
@@ -170,6 +176,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     author: "Plumbline MK Team",
     image: "/images/blog/blog-underfloor-heating.jpg",
+    tldr: "Underfloor heating provides even warmth, reduces energy bills by 15-25%, frees up wall space, and works with most floor types. Choose wet systems for whole-house installations (£100-150/sqm) or electric for single rooms (£75-100/sqm). Best installed during new builds or renovations.",
     content: `
       <p>Underfloor heating (UFH) has transformed from a luxury feature into an increasingly popular heating solution for UK homes. Whether you're building a new home, planning a renovation, or simply looking to upgrade your heating system, underfloor heating offers numerous benefits that make it worth considering.</p>
 
@@ -201,6 +208,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     author: "Plumbline MK Team",
     image: "/images/blog/blog-boiler-guide.jpg",
+    tldr: "Worcester Bosch offers the best reliability with up to 12-year warranties. Vaillant balances performance and value with German engineering. Ideal Boilers are budget-friendly without compromising quality. Consider warranty length, boiler type, efficiency, and local servicing availability.",
     content: `
       <p>Choosing the right boiler for your home is a big decision. With so many options on the market, it can be difficult to know which brand is reliable, efficient, and offers long-term peace of mind. In this guide, we compare some of the best boiler brands for homes in Milton Keynes and the surrounding areas, so you can make an informed choice.</p>
 
