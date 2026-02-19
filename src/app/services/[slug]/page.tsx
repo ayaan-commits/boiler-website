@@ -233,15 +233,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       {/* Service Image */}
       <section className="py-8 md:py-12 bg-light-grey">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="relative w-full h-64 md:h-80 overflow-hidden rounded-xl">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-2xl shadow-lg">
             <Image
               src={serviceImages[slug] || "/images/services/boiler-installation.jpg"}
               alt={`${service.title} service by Plumbline MK`}
               fill
-              className="object-cover"
+              className="object-cover object-center"
               priority
-              sizes="(max-width: 768px) 100vw, 1200px"
+              sizes="(max-width: 768px) 100vw, 960px"
             />
           </div>
         </div>
