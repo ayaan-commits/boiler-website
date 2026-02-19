@@ -27,16 +27,12 @@ export function Header() {
     closeTimerRef.current = setTimeout(() => setServicesOpen(false), 300);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Close mobile menu on scroll so users don't get stuck
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    if (!mobileOpen) return;
+    const handleScroll = () => setMobileOpen(false);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [mobileOpen]);
 
   // Cleanup dropdown timer
@@ -190,11 +186,20 @@ export function Header() {
           </div>
         </div>
 
+        {/* Mobile Menu Backdrop */}
+        {mobileOpen && (
+          <div
+            className="lg:hidden fixed inset-0 top-[72px] bg-black/40 z-40"
+            onClick={closeMobile}
+            aria-hidden="true"
+          />
+        )}
+
         {/* Mobile Menu */}
         <div
           id="mobile-menu"
           className={cn(
-            "lg:hidden bg-primary-dark border-t border-white/10 overflow-hidden transition-all duration-300",
+            "lg:hidden bg-primary-dark border-t border-white/10 overflow-hidden transition-all duration-300 relative z-50",
             mobileOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
           )}
           aria-hidden={!mobileOpen}

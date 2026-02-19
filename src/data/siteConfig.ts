@@ -413,6 +413,23 @@ export const faqs = [
       },
     ],
   },
+  {
+    category: "Technical",
+    questions: [
+      {
+        q: "What does a Worcester accredited installer mean?",
+        a: "A Worcester Bosch accreditation means an independent heating engineer or company is officially recognised, trained, and endorsed by Worcester Bosch for their high-quality, safe, and professional boiler installations. These installers, often called WAIs, provide extended warranties (up to 12 years) and expert advice, ensuring installations meet strict manufacturer standards.",
+      },
+      {
+        q: "Why is my boiler losing pressure?",
+        a: "Boiler pressure can drop for several reasons, including a leak in the system, a faulty pressure relief valve, issues with the expansion vessel, or simply after bleeding radiators. While topping up the pressure occasionally is normal, regularly needing to repressurise your boiler usually indicates an underlying problem. If your boiler keeps losing pressure, shutting down, or you notice water outside from the overflow pipe, it's best to have it checked by a qualified engineer to prevent further damage or breakdown.",
+      },
+      {
+        q: "How much does a plumber cost in Milton Keynes?",
+        a: "The cost of a plumber in Milton Keynes depends on the type of job and parts required. At Plumbline MK, we provide transparent, upfront pricing for all plumbing repairs, installations, and maintenance work. Contact us for a free, no-obligation quote tailored to your specific needs.",
+      },
+    ],
+  },
 ];
 
 export const navLinks = [

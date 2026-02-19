@@ -55,7 +55,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send to n8n webhook (handles Google Sheets + email notification)
+    // Send to n8n webhook (handles email + Google Sheets)
     const webhookUrl = process.env.N8N_WEBHOOK_URL;
     if (!webhookUrl) {
       console.error("N8N_WEBHOOK_URL environment variable is not configured");

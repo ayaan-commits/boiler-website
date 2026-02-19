@@ -191,6 +191,42 @@ export const blogPosts: BlogPost[] = [
       <p>If you're considering underfloor heating, consult with a qualified heating engineer who can assess your property and recommend the best solution. While the initial investment is higher than radiators, the long-term benefits of comfort, efficiency, and aesthetics make underfloor heating an excellent choice for modern homes.</p>
     `,
   },
+  {
+    title: "Best Boiler Brands Compared – A Guide for Milton Keynes Homeowners",
+    slug: "best-boiler-brands-compared",
+    excerpt:
+      "Choosing the right boiler for your home is a big decision. With so many options on the market, it can be difficult to know which brand is reliable, efficient, and offers long-term peace of mind. In this guide, we compare some of the best boiler brands for homes in Milton Keynes.",
+    category: "Brands",
+    date: "February 19, 2026",
+    readTime: "5 min read",
+    author: "Plumbline MK Team",
+    image: "/images/blog/blog-boiler-guide.jpg",
+    content: `
+      <p>Choosing the right boiler for your home is a big decision. With so many options on the market, it can be difficult to know which brand is reliable, efficient, and offers long-term peace of mind. In this guide, we compare some of the best boiler brands for homes in Milton Keynes and the surrounding areas, so you can make an informed choice.</p>
+
+      <h2>Worcester Bosch</h2>
+      <p>Widely considered one of the UK's top boiler brands, Worcester Bosch offers excellent reliability and build quality with high-efficiency A-rated models. You can get extended warranties up to 12 years on select models, plus easy access to parts and servicing.</p>
+      <p><strong>Best for:</strong> Most homes in Milton Keynes, especially homeowners seeking long-term peace of mind.</p>
+
+      <h2>Vaillant</h2>
+      <p>A trusted German brand known for quality and efficiency, Vaillant boilers offer quiet operation and energy-efficient performance. They're reliable and long-lasting with solid warranty options.</p>
+      <p><strong>Best for:</strong> Homeowners who want a balance of performance, reliability, and value.</p>
+
+      <h2>Ideal Boilers</h2>
+      <p>A cost-effective and reliable UK brand, Ideal Boilers are budget-friendly without compromising quality. They have good efficiency ratings and parts and service are widely available, making them trusted across many domestic homes.</p>
+      <p><strong>Best for:</strong> Standard domestic properties in Milton Keynes looking for value for money.</p>
+
+      <h2>How to Choose the Right Boiler for Your Home</h2>
+      <p>When choosing a boiler, consider the following factors:</p>
+      <ul>
+        <li><strong>Warranty & Support:</strong> Longer warranties protect your investment.</li>
+        <li><strong>Boiler Type:</strong> Combi, system, or regular boilers depending on your home's needs.</li>
+        <li><strong>Efficiency:</strong> Higher efficiency models save on energy bills.</li>
+        <li><strong>Local Servicing:</strong> Choose a brand that's easy to repair in Milton Keynes.</li>
+      </ul>
+      <p>At Plumbline MK, we're accredited installers for Worcester Bosch and Vaillant, and we also supply and install Ideal Boilers and other leading brands. Contact us for a free, no-obligation quote tailored to your home.</p>
+    `,
+  },
 ];
 
 export const blogCategories = [
@@ -199,4 +235,5 @@ export const blogCategories = [
   "Maintenance",
   "Legal",
   "Tips",
+  "Brands",
 ];
