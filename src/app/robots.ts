@@ -7,5 +7,8 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://www.plumblinemk.co.uk/sitemap.xml",
+    host: "https://www.plumblinemk.co.uk",
   };
 }
+
+// Note: llms.txt is served from /public/llms.txt at https://www.plumblinemk.co.uk/llms.txt
