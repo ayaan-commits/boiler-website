@@ -16,10 +16,12 @@ import {
   Star,
   ArrowRight,
   ShieldCheck as ShieldIcon,
+  PoundSterling,
 } from "lucide-react";
 import { services, serviceDetails, servicePainPoints, faqs, testimonials, siteConfig } from "@/data/siteConfig";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { PricingSection } from "@/components/sections/PricingSection";
 
 const iconMap = {
   Flame,
@@ -125,6 +127,30 @@ export default async function ServicePage({ params }: ServicePageProps) {
     },
   };
 
+  // Map service slugs to related guides
+  const serviceGuideMap: Record<string, { label: string; href: string }[]> = {
+    "boiler-installation": [
+      { label: "Boiler Service vs Repair: What\u2019s the Difference?", href: "/guides/boiler-service-vs-repair" },
+      { label: "Common Boiler Problems Explained", href: "/guides/boiler-troubleshooting" },
+      { label: "How to Choose a Plumber in Milton Keynes", href: "/guides/how-to-choose-a-plumber" },
+    ],
+    "boiler-repair": [
+      { label: "Boiler Service vs Repair: What\u2019s the Difference?", href: "/guides/boiler-service-vs-repair" },
+      { label: "Common Boiler Problems Explained", href: "/guides/boiler-troubleshooting" },
+    ],
+    "boiler-servicing": [
+      { label: "Boiler Service vs Repair: What\u2019s the Difference?", href: "/guides/boiler-service-vs-repair" },
+      { label: "Common Boiler Problems Explained", href: "/guides/boiler-troubleshooting" },
+    ],
+    "underfloor-heating": [
+      { label: "Is Underfloor Heating Worth It?", href: "/guides/is-underfloor-heating-worth-it" },
+    ],
+    "powerflushing": [
+      { label: "Common Boiler Problems Explained", href: "/guides/boiler-troubleshooting" },
+    ],
+  };
+  const relatedGuides = serviceGuideMap[slug] || [];
+
   // Map service slugs to FAQ categories for relevant FAQs
   const serviceFaqMap: Record<string, string[]> = {
     "boiler-installation": ["Boiler Installation", "General"],
@@ -153,10 +179,50 @@ export default async function ServicePage({ params }: ServicePageProps) {
     })),
   };
 
+  // Boiler installation pricing schema
+  const pricingSchemas = slug === "boiler-installation" ? [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "Boiler Installation Costs in Milton Keynes",
+      description: "Transparent pricing for boiler installations in Milton Keynes. From \u00A31,800 for standard combi swaps to \u00A33,500+ for complex installations.",
+      author: { "@type": "Organization", name: siteConfig.name },
+      datePublished: "2026-02-20",
+      dateModified: "2026-02-20",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://plumblinemk.co.uk",
+      name: siteConfig.name,
+      image: "https://plumblinemk.co.uk/images/brand/logo-black.png",
+      description: "Gas Safe registered boiler installation and plumbing engineers in Milton Keynes",
+      url: "https://plumblinemk.co.uk",
+      telephone: "07805844016",
+      priceRange: "\u00A31800-\u00A33500",
+      areaServed: { "@type": "City", name: "Milton Keynes" },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "3 Ayrton Close, Grange Farm",
+        addressLocality: "Milton Keynes",
+        addressRegion: "Buckinghamshire",
+        postalCode: "MK8 0PA",
+        addressCountry: "GB",
+      },
+      sameAs: [
+        siteConfig.social.facebook,
+        siteConfig.social.google,
+      ],
+    },
+  ] : [];
+
   return (
     <div className="min-h-screen">
       <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
+      {pricingSchemas.map((schema, i) => (
+        <JsonLd key={`pricing-${i}`} data={schema} />
+      ))}
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -310,6 +376,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 </div>
               )}
 
+              {/* Pricing Section - Boiler Installation only */}
+              {slug === "boiler-installation" && <PricingSection />}
+
               {/* Why Choose Us Section */}
               {details && (
                 <div className="mb-12">
@@ -416,6 +485,27 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
+
+                {/* Related Guides */}
+                {relatedGuides.length > 0 && (
+                  <div className="bg-cream rounded-xl p-6 mb-6">
+                    <h3 className="font-heading text-xl font-bold text-primary mb-4">
+                      Helpful Guides
+                    </h3>
+                    <div className="space-y-2">
+                      {relatedGuides.map((guide) => (
+                        <Link
+                          key={guide.href}
+                          href={guide.href}
+                          className="flex items-center gap-2 text-sm text-teal hover:text-accent font-medium transition-colors py-1"
+                        >
+                          <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
+                          {guide.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Emergency Contact Card */}
                 <div className="bg-alert rounded-xl p-6 text-white">

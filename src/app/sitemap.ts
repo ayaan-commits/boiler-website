@@ -77,6 +77,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
+  // Guide pages
+  const guideSlugs = [
+    "boiler-service-vs-repair",
+    "boiler-troubleshooting",
+    "is-underfloor-heating-worth-it",
+    "how-to-choose-a-plumber",
+  ];
+  const guideRoutes = [
+    {
+      url: `${baseUrl}/guides`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    ...guideSlugs.map((slug) => ({
+      url: `${baseUrl}/guides/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+  ];
+
   // Blog posts
   const blogRoutes = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
@@ -85,5 +107,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...guideRoutes, ...blogRoutes];
 }

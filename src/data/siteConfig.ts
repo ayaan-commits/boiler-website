@@ -357,15 +357,15 @@ export const faqs = [
     questions: [
       {
         q: "Are your engineers Gas Safe registered?",
-        a: "Yes, all our engineers at Plumbline MK are fully qualified and Gas Safe registered. We undergo regular training to stay up-to-date with the latest regulations and best practices.",
+        a: "Yes, all Plumbline MK engineers are fully qualified and Gas Safe registered (you can verify on the Gas Safe Register website). We carry our Gas Safe ID cards on every job and our registration number is displayed on all documentation.",
       },
       {
         q: "What areas do you cover?",
-        a: "We cover Milton Keynes and surrounding areas up to 50 miles away, including Newport Pagnell, Bedford, Buckingham, Aylesbury, Northampton, Bedfordshire, and Hertfordshire. Contact us to check if we cover your area.",
+        a: "We cover Milton Keynes and surrounding areas within a 50-mile radius, including Newport Pagnell, Buckingham, Bedford, Northampton, Luton, and Leighton Buzzard.",
       },
       {
         q: "Do you offer free quotes?",
-        a: "Yes, we provide free, no-obligation quotes for all our services. You can request a quote online, by phone, via WhatsApp, or we can arrange a home visit.",
+        a: "Yes, all quotes are completely free with no obligation. Call us on 07805 844 016, WhatsApp us, or fill in our online form and we'll get back to you within 2 hours during business hours.",
       },
     ],
   },
@@ -374,15 +374,15 @@ export const faqs = [
     questions: [
       {
         q: "How much does a boiler installation cost?",
-        a: "Every installation is different, so we provide a free, no-obligation quote tailored to your home. Contact us and we'll give you an upfront price with no hidden costs.",
+        a: "A new boiler installation in Milton Keynes typically costs between \u00A31,800 and \u00A33,500, depending on the boiler type, size, and complexity of the installation. A standard combi boiler swap (like-for-like) starts from around \u00A31,800. System or heat-only boilers, or installations requiring pipework changes, may cost more. All our quotes are fixed-price with no hidden fees. We also include a free Hive smart thermostat with every installation.",
       },
       {
         q: "What brands of boiler do you install?",
-        a: "As accredited installers for Worcester Bosch and Vaillant, we can offer extended warranties of up to 12 years on selected models, giving you complete peace of mind and long-term protection. We also supply and install a wide range of other leading boiler brands, ensuring you receive the best solution for your home — whether you're replacing an old system or installing a brand-new one.",
+        a: "We are accredited installers for Worcester Bosch, Vaillant, Baxi, and Ideal boilers. We recommend Worcester Bosch and Vaillant as our top choices for reliability and efficiency. Being an accredited installer means we can offer extended manufacturer warranties of up to 12 years.",
       },
       {
         q: "What warranty do you offer on new boilers?",
-        a: "As accredited installers for Worcester Bosch and Vaillant, we can offer extended warranties of up to 12 years on selected models, giving you complete peace of mind and long-term protection. We also provide a 12-month guarantee on all pipework and labour carried out by Plumbline MK.",
+        a: "We offer up to 12 years manufacturer warranty on new Worcester Bosch boilers and up to 10 years on Vaillant boilers when installed by our accredited engineers. We also provide a 12-month workmanship guarantee on all pipework and labour.",
       },
     ],
   },
@@ -391,19 +391,19 @@ export const faqs = [
     questions: [
       {
         q: "How often should I get my boiler serviced?",
-        a: "We recommend getting your boiler serviced once a year. Annual servicing helps identify issues early, maintain efficiency, and keeps your manufacturer's warranty valid.",
+        a: "Your boiler should be serviced once a year, ideally before winter. Annual servicing keeps your boiler running efficiently, maintains your warranty, and is a legal requirement for landlords. It also catches small problems before they become expensive repairs.",
       },
       {
         q: "What is included in a boiler service?",
-        a: "A typical boiler service includes safety checks, cleaning of internal components, checking for leaks or corrosion, and testing gas pressure and flue. You'll receive a full service report.",
+        a: "A full boiler service includes: visual inspection of the boiler and flue, checking gas pressure and flow, cleaning the burner and heat exchanger, testing safety devices, checking for carbon monoxide leaks, inspecting seals and gaskets, and a full system performance check. You'll receive a service report at the end.",
       },
       {
         q: "How do I know if I need a new boiler?",
-        a: "Signs include frequent breakdowns, rising energy bills, strange noises, or if your boiler is over 10-15 years old. We offer honest advice and won't sell you a new boiler if you don't need one.",
+        a: "Signs you may need a new boiler include: it's over 15 years old, frequent breakdowns, rising energy bills, uneven heating, yellow or orange flame instead of blue, strange noises (banging, kettling, whistling), or the cost of repairs is approaching 50% of a new boiler cost. Our engineers will always give you an honest assessment.",
       },
       {
         q: "What should I do if my boiler shows an error code?",
-        a: "Try resetting the boiler using the instructions in your manual. If the issue persists, contact us and we can diagnose the problem - often the same day.",
+        a: "Don't ignore error codes. Common codes like E1, F1, or EA on Worcester Bosch boilers often indicate low pressure or ignition faults. First, check your boiler pressure gauge (should be between 1-1.5 bar). If it's low, try repressurising the system. If the error persists or you're unsure, call us on 07805 844 016 - do not attempt to fix gas components yourself.",
       },
     ],
   },
@@ -412,15 +412,15 @@ export const faqs = [
     questions: [
       {
         q: "Can you provide a landlord gas safety certificate?",
-        a: "Yes! As your trusted local plumbers in Milton Keynes we can definitely provide landlord gas safety certificates (CP12). We offer fast appointments and digital certificates.",
+        a: "Yes, we provide CP12 Gas Safety Certificates for landlords across Milton Keynes and surrounding areas. Landlords are legally required to have a gas safety check carried out annually by a Gas Safe registered engineer. We offer competitive rates for single properties and portfolios.",
       },
       {
         q: "Do you handle legionella water testing?",
-        a: "Yes, whether you need an emergency boiler repair or legionella water testing, we are happy to help. Contact us for pricing and availability.",
+        a: "Yes, we can carry out legionella risk assessments and water testing as part of our landlord services. This is particularly important for properties with stored water systems.",
       },
       {
         q: "Can I book a boiler service online?",
-        a: "Absolutely! You can book your boiler service directly through our website or by calling us on 07805 844 016.",
+        a: "Yes, you can request a booking through our online contact form at plumblinemk.co.uk/contact, or call us on 07805 844 016, or WhatsApp us. We aim to respond within 2 hours and can usually book within 1-3 days.",
       },
     ],
   },
@@ -429,15 +429,15 @@ export const faqs = [
     questions: [
       {
         q: "What does a Worcester accredited installer mean?",
-        a: "A Worcester Bosch accreditation means an independent heating engineer or company is officially recognised, trained, and endorsed by Worcester Bosch for their high-quality, safe, and professional boiler installations. These installers, often called WAIs, provide extended warranties (up to 12 years) and expert advice, ensuring installations meet strict manufacturer standards.",
+        a: "Worcester Bosch Accredited Installer status means our engineers have completed specialist training directly with Worcester Bosch. This allows us to offer extended warranties of up to 12 years (vs the standard 2 years), priority technical support, and access to genuine Worcester Bosch parts. It's the highest level of certification for installing Worcester Bosch boilers.",
       },
       {
         q: "Why is my boiler losing pressure?",
-        a: "Boiler pressure can drop for several reasons, including a leak in the system, a faulty pressure relief valve, issues with the expansion vessel, or simply after bleeding radiators. While topping up the pressure occasionally is normal, regularly needing to repressurise your boiler usually indicates an underlying problem. If your boiler keeps losing pressure, shutting down, or you notice water outside from the overflow pipe, it's best to have it checked by a qualified engineer to prevent further damage or breakdown.",
+        a: "Boiler pressure loss is usually caused by a small water leak somewhere in the system (check radiator valves and visible pipework), a recently bled radiator, or a faulty pressure relief valve. If your pressure drops below 1 bar, you can repressurise using the filling loop (check your boiler manual). If pressure keeps dropping, call us - it likely indicates a leak that needs fixing.",
       },
       {
         q: "How much does a plumber cost in Milton Keynes?",
-        a: "The cost of a plumber in Milton Keynes depends on the type of job and parts required. At Plumbline MK, we provide transparent, upfront pricing for all plumbing repairs, installations, and maintenance work. Contact us for a free, no-obligation quote tailored to your specific needs.",
+        a: "Our call-out rate starts from \u00A365 for standard plumbing jobs. Boiler repairs typically range from \u00A380-\u00A3300 depending on the fault. We always provide a fixed quote before starting any work so there are no surprises. Emergency call-outs outside business hours may carry a higher rate.",
       },
     ],
   },
@@ -469,6 +469,7 @@ export const navLinks = [
     ],
   },
   { label: "About Us", href: "/about" },
+  { label: "Guides", href: "/guides" },
   { label: "FAQs", href: "/faqs" },
   { label: "Contact", href: "/contact" },
   { label: "Blog", href: "/blog" },
