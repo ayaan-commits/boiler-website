@@ -19,7 +19,7 @@ export const siteConfig = {
     emergency: "24/7 Emergency Callout",
   },
   social: {
-    facebook: "https://facebook.com/plumblinemk.co.uk",
+    facebook: "https://www.facebook.com/p/Plumbline-MK-61576499655937/",
     instagram: "https://instagram.com/plumblinemk.co.uk",
     whatsapp: "https://wa.me/447805844016",
     google: "https://google.com", // TODO: Replace with actual Google Business Profile URL (e.g. https://g.page/plumblinemk)
@@ -32,7 +32,7 @@ export const services = [
   {
     title: "Boiler Installation",
     slug: "boiler-installation",
-    description: "Professional combi boiler installation Milton Keynes homeowners can trust. Worcester Bosch & Vaillant accredited with up to 12-year warranty on new installations.",
+    description: "Professional boiler installation Milton Keynes homeowners can trust. Worcester Bosch & Vaillant accredited with up to 12-year warranty on new installations.",
     shortDesc: "Worcester Bosch & Vaillant accredited installers",
     icon: "Flame",
     category: "boilers",

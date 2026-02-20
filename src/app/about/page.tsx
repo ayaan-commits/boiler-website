@@ -84,7 +84,7 @@ const accreditations = [
     name: "Gas Safe Register",
     number: `#${siteConfig.gasSafeNumber}`,
     description: "Official gas safety registration",
-    logo: "/images/accreditations/gas-safe.svg",
+    logo: "/images/accreditations/gas-safe.jpeg",
   },
   {
     name: "Worcester Bosch Accredited",
@@ -96,7 +96,7 @@ const accreditations = [
     name: "Vaillant Accredited",
     number: "Approved Installer",
     description: "Official Vaillant installation partner",
-    logo: "/images/accreditations/vaillant.svg",
+    logo: "/images/accreditations/vaillant.jpeg",
   },
 ];
 
