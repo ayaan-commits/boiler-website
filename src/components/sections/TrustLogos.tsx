@@ -57,6 +57,8 @@ export function TrustLogos() {
                 width={partner.width}
                 height={partner.height}
                 className="h-10 md:h-12 w-auto object-contain"
+                unoptimized={partner.logo.endsWith(".svg")}
+                style={{ width: "auto" }}
               />
             </div>
           ))}

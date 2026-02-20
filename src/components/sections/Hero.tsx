@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, ShieldCheck, Star, Clock, ArrowRight } from "lucide-react";
@@ -19,11 +20,19 @@ const YOUTUBE_VIDEO_ID = "6ZFl0wETVQ4";
 const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3`;
 
 export function Hero() {
+  const [loadVideo, setLoadVideo] = useState(false);
+
+  // Defer YouTube iframe until after initial paint for faster page load
+  useEffect(() => {
+    const timer = setTimeout(() => setLoadVideo(true), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="relative overflow-hidden min-h-[calc(100svh-80px)] flex items-center">
+    <section className="relative overflow-hidden min-h-[80svh] sm:min-h-[calc(100svh-80px)] flex items-center">
       {/* === VIDEO BACKGROUND === */}
       <div className="absolute inset-0" aria-hidden="true">
-        {/* Fallback image while video loads */}
+        {/* Fallback image (shows while video loads) */}
         <Image
           src="/images/hero/hero-engineer.jpg"
           alt=""
@@ -33,20 +42,22 @@ export function Hero() {
           sizes="100vw"
         />
 
-        {/* YouTube iframe background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <iframe
-            src={YOUTUBE_EMBED_URL}
-            title="Plumbline MK background video"
-            allow="autoplay; encrypted-media"
-            tabIndex={-1}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full border-0"
-            style={{ pointerEvents: "none" }}
-          />
-        </div>
+        {/* YouTube iframe background - deferred for performance */}
+        {loadVideo && (
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <iframe
+              src={YOUTUBE_EMBED_URL}
+              title="Plumbline MK background video"
+              allow="autoplay; encrypted-media"
+              tabIndex={-1}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full border-0"
+              style={{ pointerEvents: "none" }}
+            />
+          </div>
+        )}
 
         {/* Dark gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/75" />
       </div>
 
       {/* === CONTENT OVERLAY === */}

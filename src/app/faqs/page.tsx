@@ -12,7 +12,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 export default function FAQsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-  const categories = ["All", "General", "Boiler Installation", "Repairs & Servicing", "Gas Safety"];
+  const categories = ["All", "General", "Boiler Installation", "Repairs & Servicing", "Gas Safety", "Technical"];
 
   const filteredFaqs = selectedCategory === "All"
     ? faqs

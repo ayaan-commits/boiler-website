@@ -196,17 +196,18 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Map Placeholder */}
-                <div className="bg-warm-grey rounded-xl overflow-hidden shadow-lg h-48 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                      <MapPin className="w-8 h-8 text-primary" aria-hidden="true" />
-                    </div>
-                    <p className="text-text-muted text-sm">Map Integration</p>
-                    <p className="text-text-muted text-xs">
-                      (Google Maps / Mapbox)
-                    </p>
-                  </div>
+                {/* Google Maps */}
+                <div className="rounded-xl overflow-hidden shadow-lg h-48">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9862.5!2d-0.7718805!3d51.8841301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6dccf4fd0608593b%3A0x2832ec67ff678ecc!2sPlumbline%20MK!5e0!3m2!1sen!2suk!4v1"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Plumbline MK location on Google Maps"
+                  />
                 </div>
 
                 {/* Social Proof */}

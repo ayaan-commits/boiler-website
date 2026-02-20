@@ -22,7 +22,7 @@ export const siteConfig = {
     facebook: "https://www.facebook.com/p/Plumbline-MK-61576499655937/",
     instagram: "https://instagram.com/plumblinemk.co.uk",
     whatsapp: "https://wa.me/447805844016",
-    google: "https://google.com", // TODO: Replace with actual Google Business Profile URL (e.g. https://g.page/plumblinemk)
+    google: "https://www.google.com/maps/place/Plumbline+MK/@51.8841301,-0.7718805,9z/data=!4m8!3m7!1s0x6dccf4fd0608593b:0x2832ec67ff678ecc!8m2!3d51.8841301!4d-0.7718806!9m1!1b1!16s%2Fg%2F11wqy4nvd2",
   },
   gasSafeNumber: "957816",
   domain: "plumblinemk.co.uk",
