@@ -102,15 +102,15 @@ const galleryImages: Record<number, string> = {
   1: "/images/gallery/gallery-1.jpg",
   2: "/images/gallery/gallery-2.jpg",
   3: "/images/gallery/gallery-3.jpg",
-  4: "/images/gallery/gallery-4.jpg",
+  4: "/images/services/underfloor-heating.jpg",
   5: "/images/gallery/gallery-1.jpg",
   6: "/images/gallery/gallery-2.jpg",
   7: "/images/gallery/gallery-3.jpg",
   8: "/images/gallery/gallery-4.jpg",
-  9: "/images/gallery/gallery-1.jpg",
+  9: "/images/services/underfloor-heating.jpg",
   10: "/images/gallery/gallery-2.jpg",
   11: "/images/gallery/gallery-3.jpg",
-  12: "/images/gallery/gallery-4.jpg",
+  12: "/images/services/underfloor-heating.jpg",
 };
 
 export default function GalleryPage() {
