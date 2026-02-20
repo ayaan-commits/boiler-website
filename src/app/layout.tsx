@@ -55,15 +55,15 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://www.plumblinemk.co.uk",
     siteName: "Plumbline MK",
-    title: "Plumbline MK | Expert Plumbing & Heating Services Milton Keynes",
+    title: "Plumbline MK | Plumbing & Heating Engineers, Milton Keynes",
     description:
-      "Professional boiler installation, repair & servicing by Gas Safe registered engineers in Milton Keynes. 24/7 emergency callouts. Transparent pricing. 100+ 5-star reviews.",
+      "Gas Safe registered plumbing & heating engineers in Milton Keynes. Boiler installation, repair, servicing & 24/7 emergency callouts.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Plumbline MK - Your Trusted Local Plumbing & Heating Experts",
+        alt: "Plumbline MK - Plumbing & Heating Engineers, Milton Keynes",
       },
     ],
   },
@@ -71,9 +71,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@plumblinemk",
     creator: "@plumblinemk",
-    title: "Plumbline MK | Expert Plumbing & Heating Services Milton Keynes",
+    title: "Plumbline MK | Plumbing & Heating Engineers, Milton Keynes",
     description:
-      "Professional boiler installation, repair & servicing by Gas Safe registered engineers in Milton Keynes. 24/7 emergency callouts. Transparent pricing.",
+      "Gas Safe registered plumbing & heating engineers in Milton Keynes. Boiler installation, repair, servicing & 24/7 emergency callouts.",
     images: ["/og-image.jpg"],
   },
 };

@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     canonical: "https://www.plumblinemk.co.uk",
   },
   openGraph: {
-    title: "Expert Plumbing & Heating Services Milton Keynes | Plumbline MK",
-    description: "Professional boiler installation, repair & servicing by Gas Safe registered engineers. 24/7 emergency callouts. Transparent pricing.",
+    title: "Plumbline MK | Plumbing & Heating Engineers, Milton Keynes",
+    description: "Gas Safe registered plumbing & heating engineers in Milton Keynes. Boiler installation, repair, servicing & 24/7 emergency callouts.",
     url: "https://www.plumblinemk.co.uk",
-    images: [{ url: "/images/og/homepage.jpg", width: 1200, height: 630, alt: "Plumbline MK - Expert Plumbing & Heating Services Milton Keynes" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Plumbline MK - Plumbing & Heating Engineers, Milton Keynes" }],
   },
 };
 
