@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Phone, ShieldCheck, Star, Clock, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { motion, type Variants } from "framer-motion";
@@ -22,27 +21,16 @@ const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?aut
 export function Hero() {
   const [loadVideo, setLoadVideo] = useState(false);
 
-  // Defer YouTube iframe until after initial paint for faster page load
+  // Load iframe after first paint so it doesn't block rendering
   useEffect(() => {
-    const timer = setTimeout(() => setLoadVideo(true), 1500);
-    return () => clearTimeout(timer);
+    requestAnimationFrame(() => setLoadVideo(true));
   }, []);
 
   return (
     <section className="relative overflow-hidden min-h-[80svh] sm:min-h-[calc(100svh-80px)] flex items-center">
       {/* === VIDEO BACKGROUND === */}
-      <div className="absolute inset-0" aria-hidden="true">
-        {/* Fallback image (shows while video loads) */}
-        <Image
-          src="/images/hero/hero-engineer.jpg"
-          alt=""
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-
-        {/* YouTube iframe background - deferred for performance */}
+      <div className="absolute inset-0 z-0 bg-[#0a1628]" aria-hidden="true">
+        {/* YouTube iframe background */}
         {loadVideo && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <iframe
@@ -56,13 +44,15 @@ export function Hero() {
           </div>
         )}
 
-        {/* Dark gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/75" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/80" />
+        {/* Extra top gradient to hide YouTube's baked-in text */}
+        <div className="absolute inset-x-0 top-0 h-[30%] bg-gradient-to-b from-black to-transparent" />
       </div>
 
       {/* === CONTENT OVERLAY === */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-6 xl:px-8 py-12 sm:py-16 lg:py-20">
-        <div className="max-w-3xl">
+        <div className="max-w-2xl">
           {/* Trust badges */}
           <motion.div
             className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5"
@@ -73,7 +63,7 @@ export function Hero() {
           >
             {[
               { icon: ShieldCheck, text: "Gas Safe Registered", mobileText: "Gas Safe" },
-              { icon: Star, text: "5-Star Rated", mobileText: "5-Star Rated" },
+              { icon: Star, text: "100+ 5-Star Reviews", mobileText: "100+ Reviews" },
               { icon: Clock, text: "24/7 Available", mobileText: "24/7" },
             ].map(({ icon: Icon, text, mobileText }) => (
               <span
@@ -89,7 +79,7 @@ export function Hero() {
 
           {/* Headline */}
           <motion.h1
-            className="font-heading text-[1.7rem] xs:text-[1.85rem] sm:text-[2.25rem] lg:text-[2.75rem] xl:text-[3.25rem] 2xl:text-[3.5rem] font-extrabold text-white leading-[1.1] mb-2.5 sm:mb-4"
+            className="font-heading text-[1.7rem] xs:text-[1.85rem] sm:text-[2.25rem] lg:text-[2.75rem] xl:text-[3.25rem] 2xl:text-[3.5rem] font-extrabold text-white leading-[1.1] mb-2.5 sm:mb-3"
             initial="hidden"
             animate="visible"
             variants={fadeUp}
@@ -108,15 +98,26 @@ export function Hero() {
             Experts in Milton Keynes
           </motion.h1>
 
-          {/* Subheading */}
+          {/* Subheading - benefit driven */}
           <motion.p
-            className="text-white/80 text-[13px] sm:text-[15px] lg:text-base xl:text-lg leading-relaxed mb-4 sm:mb-6 max-w-xl"
+            className="text-white/80 text-[13px] sm:text-[15px] lg:text-base xl:text-lg leading-relaxed mb-2 sm:mb-3 max-w-xl"
             initial="hidden"
             animate="visible"
             variants={fadeUp}
             custom={2}
           >
             Gas Safe registered engineers delivering reliable, affordable plumbing and heating services with transparent pricing across Milton Keynes.
+          </motion.p>
+
+          {/* Value proposition line */}
+          <motion.p
+            className="text-accent font-semibold text-[13px] sm:text-sm lg:text-[15px] mb-4 sm:mb-6"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            custom={2.5}
+          >
+            New boilers from £1,995 &mdash; Free Hive smart thermostat included
           </motion.p>
 
           {/* CTA Buttons */}

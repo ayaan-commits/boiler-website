@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { FloatingCTA } from "@/components/ui/FloatingCTA";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -86,6 +87,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${nunito.variable} ${dmSans.variable}`}>
       <body className="antialiased">
+        <LoadingScreen />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-semibold focus:ring-2 focus:ring-white"
