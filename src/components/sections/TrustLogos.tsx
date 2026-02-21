@@ -4,9 +4,9 @@ const partners = [
   {
     name: "Worcester Bosch",
     subtitle: "Accredited Installer",
-    logo: "/images/accreditations/worcester-bosch.svg",
-    width: 120,
-    height: 40,
+    logo: "/images/accreditations/worcester-bosch.jpeg",
+    width: 200,
+    height: 80,
   },
   {
     name: "Vaillant",

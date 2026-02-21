@@ -374,7 +374,7 @@ export const faqs = [
     questions: [
       {
         q: "How much does a boiler installation cost?",
-        a: "A new boiler installation in Milton Keynes typically costs between \u00A31,800 and \u00A33,500, depending on the boiler type, size, and complexity of the installation. A standard combi boiler swap (like-for-like) starts from around \u00A31,800. System or heat-only boilers, or installations requiring pipework changes, may cost more. All our quotes are fixed-price with no hidden fees. We also include a free Hive smart thermostat with every installation.",
+        a: "A new boiler installation in Milton Keynes typically costs between \u00A31,650 and \u00A33,500, depending on the boiler type, size, and complexity of the installation. A standard combi boiler swap (like-for-like) starts from around \u00A31,650. System or heat-only boilers start from \u00A32,000, and full combi conversions from \u00A32,800. All our quotes are fixed-price with no hidden fees. We also include a free Hive smart thermostat with every installation.",
       },
       {
         q: "What brands of boiler do you install?",

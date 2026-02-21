@@ -90,7 +90,7 @@ const accreditations = [
     name: "Worcester Bosch Accredited",
     number: "Certified Installer",
     description: "Authorized manufacturer accreditation",
-    logo: "/images/accreditations/worcester-bosch.svg",
+    logo: "/images/accreditations/worcester-bosch.jpeg",
   },
   {
     name: "Vaillant Accredited",

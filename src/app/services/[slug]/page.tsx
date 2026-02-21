@@ -185,7 +185,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: "Boiler Installation Costs in Milton Keynes",
-      description: "Transparent pricing for boiler installations in Milton Keynes. From \u00A31,800 for standard combi swaps to \u00A33,500+ for complex installations.",
+      description: "Transparent pricing for boiler installations in Milton Keynes. From \u00A31,650 for standard combi swaps to \u00A33,500+ for complex installations.",
       author: { "@type": "Organization", name: siteConfig.name },
       datePublished: "2026-02-20",
       dateModified: "2026-02-20",
@@ -199,7 +199,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       description: "Gas Safe registered boiler installation and plumbing engineers in Milton Keynes",
       url: "https://plumblinemk.co.uk",
       telephone: "07805844016",
-      priceRange: "\u00A31800-\u00A33500",
+      priceRange: "\u00A31650-\u00A33500",
       areaServed: { "@type": "City", name: "Milton Keynes" },
       address: {
         "@type": "PostalAddress",
